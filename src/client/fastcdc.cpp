@@ -54,7 +54,6 @@ FastCDC::FastCDC(uint32_t minsize, uint32_t avgsize, uint64_t maxsize) {
 
 size_t FastCDC::chunking(char* path, uint8_t *data, size_t len, int end, std::vector<Chunk>& chunks) {
     size_t offset = 0;
-    static int chunkid = 0;
     while (((len - offset) >= maxsize_) || (end && (offset < len))) {
         uint32_t chunklen = cut(data + offset, len - offset, minsize_, 
                                 maxsize_, nmlsize_, maskS_, maskL_);
@@ -62,6 +61,7 @@ size_t FastCDC::chunking(char* path, uint8_t *data, size_t len, int end, std::ve
         chunks.emplace_back(Chunk(path, pos_ + offset, chunklen, 0, fringerprint));
         offset += chunklen;
     }
+
     pos_ += offset;
     return offset;
 }
@@ -75,7 +75,7 @@ bool FastCDC::parse(char* path, std::vector<Chunk>& chunks) {
     size_t offset = 0;
     int end = 0;
     size_t bufsize = maxsize_ * 4;
-    bufsize = FASTCDC_CLAMP(bufsize, 0, UINT32_MAX);
+    bufsize = FASTCDC_CLAMP(bufsize, maxsize_, UINT32_MAX);
     uint8_t buf[bufsize];
     while (!end) {
         size_t ar = fread(buf, 1, bufsize, file);
@@ -84,5 +84,42 @@ bool FastCDC::parse(char* path, std::vector<Chunk>& chunks) {
         fseek(file, offset, SEEK_SET);
     }
 
+    fclose(file);
     return true;
+}
+
+uint32_t FastCDC::getMinsize() const {
+    return minsize_;
+}
+
+void FastCDC::setMinsize(uint32_t minsize) {
+    minsize_ = minsize;
+}
+
+uint32_t FastCDC::getAvgsize() const {
+    return avgsize_;
+}
+
+void FastCDC::setAvgsize(uint32_t avgsize) {
+    avgsize_ = avgsize;
+}
+
+uint32_t FastCDC::getMaxsize() const {
+    return maxsize_;
+}
+
+void FastCDC::setMaxsize(uint32_t maxsize) {
+    maxsize_ = maxsize;
+}
+
+size_t FastCDC::getPos() const {
+    return pos_;
+}
+
+void FastCDC::setPos(size_t pos) {
+    pos_ = pos;
+}
+
+void FastCDC::clear() {
+    pos_ = 0;
 }

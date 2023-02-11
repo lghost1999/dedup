@@ -69,7 +69,21 @@ public:
     FastCDC(uint32_t minsize, uint32_t avgsize, uint64_t maxsize_);
 
     bool parse(char* path, std::vector<Chunk>& chunks);
+    
+    uint32_t getMinsize() const;
+    void setMinsize(uint32_t minsize);
 
+    uint32_t getAvgsize() const;
+    void setAvgsize(uint32_t avgsize);
+
+    uint32_t getMaxsize() const;
+    void setMaxsize(uint32_t maxsize);
+
+    size_t getPos() const;
+    void setPos(size_t pos);
+
+    void clear();
+    
 private:
     size_t chunking(char* path, uint8_t *data, size_t len, int end, std::vector<Chunk>& chunks);
     uint32_t minsize_;
