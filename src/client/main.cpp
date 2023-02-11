@@ -1,5 +1,6 @@
 #include "fastcdc.h"
 #include "chunk.h"
+#include "fringerprint_lru.h"
 
 #include <iostream>
 #include <vector>
@@ -21,5 +22,25 @@ int main(int argc, char* argv[]) {
     //     std::cout << chunk.getPath() << " : " << chunk.getOffset() << " : " << chunk.getLength() <<
     //                  chunk.getRefcnt() << " : " << chunk.getFringerprint().val() << std::endl;
     // }
+    // Fringerprint fp;
+    // std::cout << fp.val() << std::endl;
+
+    std::cout << chunks.size() << std::endl;
+
+    int cnt = 0;
+    FringerprintLRU lru(1000);
+    for (int i = 0; i < chunks.size(); i++) {
+        lru.put(chunks[i].getFringerprint().val());
+    }
+    std::cout << lru.getsize() << std::endl;
+
+    for (int i = 0; i < chunks.size(); i++) {
+        if (!lru.get(chunks[i].getFringerprint().val())) {
+            cnt++;
+        }
+    }
+
+    std::cout << cnt << std::endl;
+
     return 0;
 }
