@@ -3,51 +3,46 @@
 
 #include <iostream>
 
-template<class T>
-T LRUNode<T>::getKey() const {
+Fringerprint LRUNode::getKey() const {
     return key_;
 }
 
-template<class T>
-void LRUNode<T>::setKey(T key) {
+void LRUNode::setKey(Fringerprint key) {
     key_ = key;
 }
 
-template<class T>
-LRUNode<T>* LRUNode<T>::getNext() const {
+LRUNode* LRUNode::getNext() const {
     return next_;
 }
 
-template<class T>
-void LRUNode<T>::setNext(LRUNode* next) {
+void LRUNode::setNext(LRUNode* next) {
     next_ = next;
 }
 
-template<class T>
-LRUNode<T>* LRUNode<T>::getPrev() const {
+LRUNode* LRUNode::getPrev() const {
     return prev_;
 }
 
-template<class T>
-void LRUNode<T>::setPrev(LRUNode* prev) {
+void LRUNode::setPrev(LRUNode* prev) {
     prev_ = prev;
 }
 
 FringerprintLRU::FringerprintLRU(int capacity) {
     size_ = 0;
     capacity_ = capacity;
-    head_ = new LRUNode<std::string>("0");
-    tail_ = new LRUNode<std::string>("0");
+    head_ = new LRUNode(Fringerprint::zero);
+    tail_ = new LRUNode(Fringerprint::zero);
     head_->setNext(tail_);
     tail_->setPrev(head_);
+    map_.clear();
 }
 
-bool FringerprintLRU::get(std::string fp) {
+bool FringerprintLRU::get(Fringerprint fp) {
     if (map_.find(fp) == map_.end()) {
         return false;
     }
 
-    LRUNode<std::string>* fpnode;
+    LRUNode* fpnode;
     fpnode = map_[fp];
 
     fpnode->getPrev()->setNext(fpnode->getNext());
@@ -61,15 +56,16 @@ bool FringerprintLRU::get(std::string fp) {
     return true;
 }
 
-bool FringerprintLRU::put(std::string fp) {
-    LRUNode<std::string>* fpnode;
+bool FringerprintLRU::put(Fringerprint fp) {
+    LRUNode* fpnode;
 
     if (map_.find(fp) == map_.end()) {
-        fpnode = new LRUNode<std::string>(fp);
+        fpnode = new LRUNode(fp);
         if (fpnode == nullptr) {
             return false;
         }
     } else {
+        // std::cout << fp.val() << std::endl;
         fpnode = map_[fp];
         fpnode->getPrev()->setNext(fpnode->getNext());
         fpnode->getNext()->setPrev(fpnode->getPrev());
@@ -77,7 +73,7 @@ bool FringerprintLRU::put(std::string fp) {
     }
 
     if (size_ == capacity_) {
-        LRUNode<std::string>* elimnode;
+        LRUNode* elimnode;
         elimnode = tail_->getPrev();
         elimnode->getPrev()->setNext(elimnode->getNext());
         elimnode->getNext()->setPrev(elimnode->getPrev());

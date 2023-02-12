@@ -57,7 +57,7 @@ size_t FastCDC::chunking(char* path, uint8_t *data, size_t len, int end, std::ve
     while (((len - offset) >= maxsize_) || (end && (offset < len))) {
         uint32_t chunklen = cut(data + offset, len - offset, minsize_, 
                                 maxsize_, nmlsize_, maskS_, maskL_);
-        Fringerprint fringerprint = Fringerprint::get(data, chunklen, 0);
+        Fringerprint fringerprint = Fringerprint::get(data + offset, chunklen, 0);
         chunks.emplace_back(Chunk(path, pos_ + offset, chunklen, 0, fringerprint));
         offset += chunklen;
     }

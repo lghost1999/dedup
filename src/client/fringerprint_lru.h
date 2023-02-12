@@ -4,13 +4,13 @@
 #include "fringerprint.h"
 #include <unordered_map>
 
-template<class T>
+// 定义LRU双向链表节点对象
 class LRUNode {
 public:
-    LRUNode(T key, LRUNode* next = nullptr, LRUNode* prev = nullptr) : key_(key), next_(next), prev_(prev) {};
+    LRUNode(Fringerprint key, LRUNode* next = nullptr, LRUNode* prev = nullptr) : key_(key), next_(next), prev_(prev) {};
     
-    T getKey() const;
-    void setKey(T key);
+    Fringerprint getKey() const;
+    void setKey(Fringerprint key);
 
     LRUNode* getNext() const;
     void setNext(LRUNode* next);
@@ -19,7 +19,7 @@ public:
     void setPrev(LRUNode* prev);
 
 private:
-    T key_;
+    Fringerprint key_;
     LRUNode* next_;
     LRUNode* prev_;
 };
@@ -29,8 +29,8 @@ class FringerprintLRU {
 public:
     FringerprintLRU(int capacity);
 
-    bool get(std::string fp);
-    bool put(std::string fp);
+    bool get(Fringerprint fp);
+    bool put(Fringerprint fp);
 
     int getsize() const;
     void setsize(int size);
@@ -41,9 +41,9 @@ public:
 private:
     int size_;
     int capacity_;
-    LRUNode<std::string>* head_;
-    LRUNode<std::string>* tail_;
-    std::unordered_map<std::string, LRUNode<std::string>*> map_;
+    LRUNode* head_;
+    LRUNode* tail_;
+    std::unordered_map<Fringerprint, LRUNode*, Fringerprint> map_;
 };
 
 #endif

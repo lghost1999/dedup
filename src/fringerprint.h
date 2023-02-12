@@ -6,7 +6,7 @@
 
 class Fringerprint {
 public:
-    explicit Fringerprint(XXH128_hash_t fp = (XXH128_hash_t){0, 0}):fp_(fp) {} 
+    explicit Fringerprint(XXH128_hash_t fp = {0, 0}):fp_(fp) {} 
 
     bool operator==(const Fringerprint& rhs) const {
         return XXH128_isEqual(fp_, rhs.fp_);
@@ -16,12 +16,14 @@ public:
         return !operator==(rhs);
     }
     
+    // 自定义哈希函数
+    size_t operator() (const Fringerprint& rhs) const {
+        return rhs.fp_.high64 ^ rhs.fp_.low64;
+    }
+
     // 重载比较运算符，在rocksdb中按key排序
     bool operator<(const Fringerprint& rhs) const {
-        if (fp_.high64 == rhs.fp_.high64) {
-            return fp_.low64 <= rhs.fp_.high64;
-        }
-        return fp_.high64 <= rhs.fp_.high64;
+        return fp_.high64 < rhs.fp_.high64 || (fp_.high64 == rhs.fp_.high64 && fp_.low64 < rhs.fp_.low64);
     }
 
     std::string val() const;
