@@ -2,6 +2,8 @@
 #define FRINGERPRINT_LRU_H
 
 #include "fringerprint.h"
+#include "bitmap.h"
+#include <vector>
 #include <unordered_map>
 
 // 定义LRU双向链表节点对象
@@ -29,8 +31,8 @@ class FringerprintLRU {
 public:
     FringerprintLRU(int capacity);
 
-    bool get(Fringerprint fp);
-    bool put(Fringerprint fp);
+    bool get(std::vector<Fringerprint>& fps, BitMap& bitmap);
+    bool put(std::vector<Fringerprint>& fps);
 
     int getsize() const;
     void setsize(int size);

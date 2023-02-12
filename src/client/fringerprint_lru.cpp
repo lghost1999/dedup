@@ -37,58 +37,63 @@ FringerprintLRU::FringerprintLRU(int capacity) {
     map_.clear();
 }
 
-bool FringerprintLRU::get(Fringerprint fp) {
-    if (map_.find(fp) == map_.end()) {
-        return false;
+bool FringerprintLRU::get(std::vector<Fringerprint>& fps, BitMap& bitmap) {
+    for (size_t i = 0; i < fps.size(); i++) {
+        if (map_.find(fps[i]) == map_.end()) {
+            continue;
+        }
+
+        LRUNode* fpnode;
+        fpnode = map_[fps[i]];
+
+        fpnode->getPrev()->setNext(fpnode->getNext());
+        fpnode->getNext()->setPrev(fpnode->getPrev());
+
+        fpnode->setNext(head_->getNext());
+        head_->getNext()->setPrev(fpnode);
+        fpnode->setPrev(head_);
+        head_->setNext(fpnode);
+
+        bitmap.put(i);
     }
-
-    LRUNode* fpnode;
-    fpnode = map_[fp];
-
-    fpnode->getPrev()->setNext(fpnode->getNext());
-    fpnode->getNext()->setPrev(fpnode->getPrev());
-
-    fpnode->setNext(head_->getNext());
-    head_->getNext()->setPrev(fpnode);
-    fpnode->setPrev(head_);
-    head_->setNext(fpnode);
-
+    
     return true;
 }
 
-bool FringerprintLRU::put(Fringerprint fp) {
+bool FringerprintLRU::put(std::vector<Fringerprint>& fps) {
     LRUNode* fpnode;
 
-    if (map_.find(fp) == map_.end()) {
-        fpnode = new LRUNode(fp);
-        if (fpnode == nullptr) {
-            return false;
+    for (size_t i = 0; i < fps.size(); i++) {
+        if (map_.find(fps[i]) == map_.end()) {
+            fpnode = new LRUNode(fps[i]);
+            if (fpnode == nullptr) {
+                return false;
+            }
+        } else {
+            fpnode = map_[fps[i]];
+            fpnode->getPrev()->setNext(fpnode->getNext());
+            fpnode->getNext()->setPrev(fpnode->getPrev());
+            size_--;
         }
-    } else {
-        // std::cout << fp.val() << std::endl;
-        fpnode = map_[fp];
-        fpnode->getPrev()->setNext(fpnode->getNext());
-        fpnode->getNext()->setPrev(fpnode->getPrev());
-        size_--;
+
+        if (size_ == capacity_) {
+            LRUNode* elimnode;
+            elimnode = tail_->getPrev();
+            elimnode->getPrev()->setNext(elimnode->getNext());
+            elimnode->getNext()->setPrev(elimnode->getPrev());
+            map_.erase(elimnode->getKey());
+            size_--;
+        }
+
+        fpnode->setNext(head_->getNext());
+        head_->getNext()->setPrev(fpnode);
+        fpnode->setPrev(head_);
+        head_->setNext(fpnode);
+
+        map_.insert({fps[i], fpnode});
+        size_++;
     }
-
-    if (size_ == capacity_) {
-        LRUNode* elimnode;
-        elimnode = tail_->getPrev();
-        elimnode->getPrev()->setNext(elimnode->getNext());
-        elimnode->getNext()->setPrev(elimnode->getPrev());
-        map_.erase(elimnode->getKey());
-        size_--;
-    }
-
-    fpnode->setNext(head_->getNext());
-    head_->getNext()->setPrev(fpnode);
-    fpnode->setPrev(head_);
-    head_->setNext(fpnode);
-
-    map_.insert({fp, fpnode});
-    size_++;
-
+    
     return true;
 }
 
