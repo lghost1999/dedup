@@ -1,0 +1,7 @@
+aux_source_directory(. SRC_LIST)
+aux_source_directory(../shared SHARED_LIST)
+
+add_executable(server ${SRC_LIST} ${SHARED_LIST})
+
+target_link_libraries(server ${RPC_RPC_LIB} m xxhash)
+

@@ -18,4 +18,3 @@ bool BitMap::get(size_t n) {
 void BitMap::clear() {
     bits_.clear();
 }
-
