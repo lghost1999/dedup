@@ -26,11 +26,19 @@ public:
         return fp_.high64 < rhs.fp_.high64 || (fp_.high64 == rhs.fp_.high64 && fp_.low64 < rhs.fp_.low64);
     }
 
+    size_t getHigh64() {
+        return fp_.high64;
+    }
+
+    size_t getLow64() {
+        return fp_.low64;
+    }
+    
     std::string val() const;
 
     static Fringerprint get(const void* data, size_t len, XXH64_hash_t seed);
 
-    static Fringerprint zero;
+    static Fringerprint none;
 
 private:
     XXH128_hash_t fp_;

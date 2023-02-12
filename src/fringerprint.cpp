@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iomanip>
 
-Fringerprint Fringerprint::zero;
+Fringerprint Fringerprint::none;
 
 Fringerprint Fringerprint::get(const void* data, size_t len, XXH64_hash_t seed) {
     return Fringerprint(XXH3_128bits_withSeed(data, len, seed));

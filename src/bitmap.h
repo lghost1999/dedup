@@ -4,14 +4,15 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <vector>
-#define SHIFT 5
-#define MASK 0x1F
+
+#define BITMAP_SHIFT 5
+#define BITMAP_MASK 0x1F
 
 class BitMap {
 public:
     BitMap(size_t size);
 
-    void put(size_t n);
+    void set(size_t n);
 
     bool get(size_t n);
 

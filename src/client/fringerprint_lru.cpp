@@ -30,8 +30,8 @@ void LRUNode::setPrev(LRUNode* prev) {
 FringerprintLRU::FringerprintLRU(int capacity) {
     size_ = 0;
     capacity_ = capacity;
-    head_ = new LRUNode(Fringerprint::zero);
-    tail_ = new LRUNode(Fringerprint::zero);
+    head_ = new LRUNode(Fringerprint::none);
+    tail_ = new LRUNode(Fringerprint::none);
     head_->setNext(tail_);
     tail_->setPrev(head_);
     map_.clear();
@@ -54,7 +54,7 @@ bool FringerprintLRU::get(std::vector<Fringerprint>& fps, BitMap& bitmap) {
         fpnode->setPrev(head_);
         head_->setNext(fpnode);
 
-        bitmap.put(i);
+        bitmap.set(i);
     }
     
     return true;
