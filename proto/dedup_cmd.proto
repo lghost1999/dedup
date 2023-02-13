@@ -1,0 +1,20 @@
+syntax = "proto3";
+package dedup;
+
+option cc_generic_services = true;
+
+
+message BackupRequest {
+    string remote_filename = 2;
+    string backup_time = 3;
+};
+
+message BackupResponse {
+    bool result = 1;
+    string error_message = 2;
+};
+
+
+service DedupService {
+    rpc Backup(BackupRequest) returns (BackupResponse);
+};

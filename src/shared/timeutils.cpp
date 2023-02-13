@@ -23,8 +23,6 @@ int64_t TimesUtil::getTimeMs() {
     return tv.tv_sec * 1e3 + tv.tv_usec / 1e3;
 }
 
-
-
 std::string TimesUtil::getDateTime() {
     time_t now = time(0);
     tm  *ltm = localtime(&now);

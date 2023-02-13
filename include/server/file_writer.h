@@ -9,10 +9,12 @@
 class FileWriter {
 public:
     ~FileWriter(){};
+    
     FileWriter(const FileWriter& fileWriter) = delete;
     FileWriter& operator=(const FileWriter& fileWriter) = delete;
 
     static FileWriter* getInstance(uint32_t capacity);
+
     bool write(std::string& chunk, DBChunk& dbchunk);
 
 private:

@@ -51,6 +51,6 @@ set(RPC_LIB
 include_directories(${PROJECT_SOURCE_DIR}/include/client)
 include_directories(${PROJECT_SOURCE_DIR}/include/server)
 include_directories(${PROJECT_SOURCE_DIR}/include/shared)
-include_directories(${PROJECT_SOURCE_DIR}/proto)
+include_directories(${PROJECT_SOURCE_DIR}/proto/)
 
 add_subdirectory(src)
