@@ -3,5 +3,5 @@ aux_source_directory(../shared SHARED_LIST)
 
 add_executable(server ${SRC_LIST} ${SHARED_LIST})
 
-target_link_libraries(server ${RPC_RPC_LIB} m xxhash)
+target_link_libraries(server ${RPC_LIB} m xxhash rocksdb)
 

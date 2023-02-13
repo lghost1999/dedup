@@ -5,7 +5,7 @@
 
 class DBChunk {
 public:
-    DBChunk(int file_id, int offset, int length, int refcnt);
+    DBChunk(int file_id = 0, int offset = 0, int length = 0, int refcnt = 0);
 
     int getFileid() const;
     void setFileid(int file_id);
