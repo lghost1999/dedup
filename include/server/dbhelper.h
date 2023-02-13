@@ -26,7 +26,7 @@ public:
     bool remove(K& key);
 
     size_t size();
-    
+
 private:
     bool get(const void* key, size_t key_size, std::string& val);
     bool put(const void* key, size_t key_size, const void* val, size_t val_size);

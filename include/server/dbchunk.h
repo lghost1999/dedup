@@ -10,21 +10,22 @@ public:
     int getFileid() const;
     void setFileid(int file_id);
 
-    int getOffset() const;
-    void setOffset(int offset);
+    uint32_t getOffset() const;
+    void setOffset(uint32_t offset);
 
-    int getLength() const;
-    void setLength(int length_);
+    uint32_t getLength() const;
+    void setLength(uint32_t length);
 
     int getRefcnt() const;
-    void setRefcnt(int refcnt);
+    void setRefcnt(uint32_t refcnt);
+
     void addRefcnt();
     void subRefcnt();
     
 private:
     int file_id_;
-    int offset_;
-    int length_;
+    uint32_t offset_;
+    uint32_t length_;
     int refcnt_;
 };
 
