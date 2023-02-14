@@ -20,9 +20,8 @@ static uint32_t normal_size(uint32_t minsize, uint32_t avgsize, uint32_t len) {
 static uint32_t cut(uint8_t *data, uint32_t len, uint32_t minsize, uint32_t maxsize,
                     uint32_t nmlsize, uint32_t maskS, uint32_t maskL) {
     uint32_t n, fp = 0, i = (len < minsize) ? len : minsize;
-
     n = (nmlsize < len) ? nmlsize : len;
-    for (; i < n; i++) {                 
+    for (; i < n; i++) {           
         fp = (fp >> 1) + GEAR[data[i]];
         if ((fp & maskS) == 0) {
             return i + 1;
@@ -30,7 +29,7 @@ static uint32_t cut(uint8_t *data, uint32_t len, uint32_t minsize, uint32_t maxs
     }
 
     n = (maxsize < len) ? maxsize : len;
-    for (; i < n; i++) {                 
+    for (; i < n; i++) {   
         fp = (fp >> 1) + GEAR[data[i]];
         if ((fp & maskL) == 0) {
             return i + 1;

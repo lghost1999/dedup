@@ -15,13 +15,12 @@ public:
 
     static FileWriter* getInstance(uint32_t capacity);
 
-    bool write(std::string& chunk, DBChunk& dbchunk);
+    bool write(std::string chunk, DBChunk& dbchunk);
 
 private:
-    FileWriter(uint32_t capacity_): file_id_(0), file_(nullptr), size_(0), capacity_(capacity_){};
+    FileWriter(uint32_t capacity_): file_id_(0), size_(0), capacity_(capacity_){};
 
     int file_id_;
-    FILE* file_;
     uint32_t size_;
     uint32_t capacity_;
 };

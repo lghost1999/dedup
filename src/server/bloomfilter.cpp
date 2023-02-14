@@ -26,7 +26,7 @@ bool BloomFilter::get(std::vector<Fringerprint>& fps, BitMap& bitmap) {
             }
         }   
     }
-    
+    helper.closeDB();
     return true;
 }
 
@@ -39,5 +39,5 @@ size_t BloomFilter::hash2(Fringerprint fp) {
 }
 
 size_t BloomFilter::hash3(Fringerprint fp) {
-    return (fp.getHigh64() >> BLOOMFILTER_SHIFT | fp.getLow64() << BLOOMFILTER_SHIFT) & BLOOMFILTER_MASK;
+    return (fp.getHigh64() >> BLOOMFILTER_SHIFT & fp.getLow64() >> BLOOMFILTER_SHIFT) & BLOOMFILTER_MASK;
 }

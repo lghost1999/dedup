@@ -48,7 +48,7 @@ struct TableStruct_dedup_5fcmd_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -65,11 +65,19 @@ extern QueryFringerprintRequestDefaultTypeInternal _QueryFringerprintRequest_def
 class QueryFringerprintResponse;
 class QueryFringerprintResponseDefaultTypeInternal;
 extern QueryFringerprintResponseDefaultTypeInternal _QueryFringerprintResponse_default_instance_;
+class StorageChunkRequest;
+class StorageChunkRequestDefaultTypeInternal;
+extern StorageChunkRequestDefaultTypeInternal _StorageChunkRequest_default_instance_;
+class StorageChunkResponse;
+class StorageChunkResponseDefaultTypeInternal;
+extern StorageChunkResponseDefaultTypeInternal _StorageChunkResponse_default_instance_;
 }  // namespace dedup
 PROTOBUF_NAMESPACE_OPEN
 template<> ::dedup::Fringerprint* Arena::CreateMaybeMessage<::dedup::Fringerprint>(Arena*);
 template<> ::dedup::QueryFringerprintRequest* Arena::CreateMaybeMessage<::dedup::QueryFringerprintRequest>(Arena*);
 template<> ::dedup::QueryFringerprintResponse* Arena::CreateMaybeMessage<::dedup::QueryFringerprintResponse>(Arena*);
+template<> ::dedup::StorageChunkRequest* Arena::CreateMaybeMessage<::dedup::StorageChunkRequest>(Arena*);
+template<> ::dedup::StorageChunkResponse* Arena::CreateMaybeMessage<::dedup::StorageChunkResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace dedup {
 
@@ -563,6 +571,315 @@ class QueryFringerprintResponse :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dedup_5fcmd_2eproto;
 };
+// -------------------------------------------------------------------
+
+class StorageChunkRequest :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.StorageChunkRequest) */ {
+ public:
+  StorageChunkRequest();
+  virtual ~StorageChunkRequest();
+
+  StorageChunkRequest(const StorageChunkRequest& from);
+  StorageChunkRequest(StorageChunkRequest&& from) noexcept
+    : StorageChunkRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline StorageChunkRequest& operator=(const StorageChunkRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StorageChunkRequest& operator=(StorageChunkRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StorageChunkRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StorageChunkRequest* internal_default_instance() {
+    return reinterpret_cast<const StorageChunkRequest*>(
+               &_StorageChunkRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(StorageChunkRequest& a, StorageChunkRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StorageChunkRequest* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StorageChunkRequest* New() const final {
+    return CreateMaybeMessage<StorageChunkRequest>(nullptr);
+  }
+
+  StorageChunkRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StorageChunkRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StorageChunkRequest& from);
+  void MergeFrom(const StorageChunkRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StorageChunkRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dedup.StorageChunkRequest";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dedup_5fcmd_2eproto);
+    return ::descriptor_table_dedup_5fcmd_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFringerprintFieldNumber = 2,
+    kChunkFieldNumber = 3,
+    kRemoteFilenameFieldNumber = 1,
+  };
+  // repeated .dedup.Fringerprint fringerprint = 2;
+  int fringerprint_size() const;
+  private:
+  int _internal_fringerprint_size() const;
+  public:
+  void clear_fringerprint();
+  ::dedup::Fringerprint* mutable_fringerprint(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >*
+      mutable_fringerprint();
+  private:
+  const ::dedup::Fringerprint& _internal_fringerprint(int index) const;
+  ::dedup::Fringerprint* _internal_add_fringerprint();
+  public:
+  const ::dedup::Fringerprint& fringerprint(int index) const;
+  ::dedup::Fringerprint* add_fringerprint();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >&
+      fringerprint() const;
+
+  // repeated bytes chunk = 3;
+  int chunk_size() const;
+  private:
+  int _internal_chunk_size() const;
+  public:
+  void clear_chunk();
+  const std::string& chunk(int index) const;
+  std::string* mutable_chunk(int index);
+  void set_chunk(int index, const std::string& value);
+  void set_chunk(int index, std::string&& value);
+  void set_chunk(int index, const char* value);
+  void set_chunk(int index, const void* value, size_t size);
+  std::string* add_chunk();
+  void add_chunk(const std::string& value);
+  void add_chunk(std::string&& value);
+  void add_chunk(const char* value);
+  void add_chunk(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& chunk() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_chunk();
+  private:
+  const std::string& _internal_chunk(int index) const;
+  std::string* _internal_add_chunk();
+  public:
+
+  // string remote_filename = 1;
+  void clear_remote_filename();
+  const std::string& remote_filename() const;
+  void set_remote_filename(const std::string& value);
+  void set_remote_filename(std::string&& value);
+  void set_remote_filename(const char* value);
+  void set_remote_filename(const char* value, size_t size);
+  std::string* mutable_remote_filename();
+  std::string* release_remote_filename();
+  void set_allocated_remote_filename(std::string* remote_filename);
+  private:
+  const std::string& _internal_remote_filename() const;
+  void _internal_set_remote_filename(const std::string& value);
+  std::string* _internal_mutable_remote_filename();
+  public:
+
+  // @@protoc_insertion_point(class_scope:dedup.StorageChunkRequest)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint > fringerprint_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> chunk_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr remote_filename_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dedup_5fcmd_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StorageChunkResponse :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.StorageChunkResponse) */ {
+ public:
+  StorageChunkResponse();
+  virtual ~StorageChunkResponse();
+
+  StorageChunkResponse(const StorageChunkResponse& from);
+  StorageChunkResponse(StorageChunkResponse&& from) noexcept
+    : StorageChunkResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline StorageChunkResponse& operator=(const StorageChunkResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StorageChunkResponse& operator=(StorageChunkResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StorageChunkResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StorageChunkResponse* internal_default_instance() {
+    return reinterpret_cast<const StorageChunkResponse*>(
+               &_StorageChunkResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(StorageChunkResponse& a, StorageChunkResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StorageChunkResponse* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StorageChunkResponse* New() const final {
+    return CreateMaybeMessage<StorageChunkResponse>(nullptr);
+  }
+
+  StorageChunkResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StorageChunkResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StorageChunkResponse& from);
+  void MergeFrom(const StorageChunkResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StorageChunkResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dedup.StorageChunkResponse";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dedup_5fcmd_2eproto);
+    return ::descriptor_table_dedup_5fcmd_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // bool result = 1;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dedup.StorageChunkResponse)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  bool result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dedup_5fcmd_2eproto;
+};
 // ===================================================================
 
 class DedupService_Stub;
@@ -581,6 +898,10 @@ class DedupService : public ::PROTOBUF_NAMESPACE_ID::Service {
   virtual void QueryFringerprint(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::dedup::QueryFringerprintRequest* request,
                        ::dedup::QueryFringerprintResponse* response,
+                       ::google::protobuf::Closure* done);
+  virtual void StorageChunk(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::dedup::StorageChunkRequest* request,
+                       ::dedup::StorageChunkResponse* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -614,6 +935,10 @@ class DedupService_Stub : public DedupService {
   void QueryFringerprint(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::dedup::QueryFringerprintRequest* request,
                        ::dedup::QueryFringerprintResponse* response,
+                       ::google::protobuf::Closure* done);
+  void StorageChunk(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::dedup::StorageChunkRequest* request,
+                       ::dedup::StorageChunkResponse* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -954,9 +1279,214 @@ QueryFringerprintResponse::mutable_bit() {
   return _internal_mutable_bit();
 }
 
+// -------------------------------------------------------------------
+
+// StorageChunkRequest
+
+// string remote_filename = 1;
+inline void StorageChunkRequest::clear_remote_filename() {
+  remote_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& StorageChunkRequest::remote_filename() const {
+  // @@protoc_insertion_point(field_get:dedup.StorageChunkRequest.remote_filename)
+  return _internal_remote_filename();
+}
+inline void StorageChunkRequest::set_remote_filename(const std::string& value) {
+  _internal_set_remote_filename(value);
+  // @@protoc_insertion_point(field_set:dedup.StorageChunkRequest.remote_filename)
+}
+inline std::string* StorageChunkRequest::mutable_remote_filename() {
+  // @@protoc_insertion_point(field_mutable:dedup.StorageChunkRequest.remote_filename)
+  return _internal_mutable_remote_filename();
+}
+inline const std::string& StorageChunkRequest::_internal_remote_filename() const {
+  return remote_filename_.GetNoArena();
+}
+inline void StorageChunkRequest::_internal_set_remote_filename(const std::string& value) {
+  
+  remote_filename_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void StorageChunkRequest::set_remote_filename(std::string&& value) {
+  
+  remote_filename_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dedup.StorageChunkRequest.remote_filename)
+}
+inline void StorageChunkRequest::set_remote_filename(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  remote_filename_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dedup.StorageChunkRequest.remote_filename)
+}
+inline void StorageChunkRequest::set_remote_filename(const char* value, size_t size) {
+  
+  remote_filename_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dedup.StorageChunkRequest.remote_filename)
+}
+inline std::string* StorageChunkRequest::_internal_mutable_remote_filename() {
+  
+  return remote_filename_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* StorageChunkRequest::release_remote_filename() {
+  // @@protoc_insertion_point(field_release:dedup.StorageChunkRequest.remote_filename)
+  
+  return remote_filename_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void StorageChunkRequest::set_allocated_remote_filename(std::string* remote_filename) {
+  if (remote_filename != nullptr) {
+    
+  } else {
+    
+  }
+  remote_filename_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), remote_filename);
+  // @@protoc_insertion_point(field_set_allocated:dedup.StorageChunkRequest.remote_filename)
+}
+
+// repeated .dedup.Fringerprint fringerprint = 2;
+inline int StorageChunkRequest::_internal_fringerprint_size() const {
+  return fringerprint_.size();
+}
+inline int StorageChunkRequest::fringerprint_size() const {
+  return _internal_fringerprint_size();
+}
+inline void StorageChunkRequest::clear_fringerprint() {
+  fringerprint_.Clear();
+}
+inline ::dedup::Fringerprint* StorageChunkRequest::mutable_fringerprint(int index) {
+  // @@protoc_insertion_point(field_mutable:dedup.StorageChunkRequest.fringerprint)
+  return fringerprint_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >*
+StorageChunkRequest::mutable_fringerprint() {
+  // @@protoc_insertion_point(field_mutable_list:dedup.StorageChunkRequest.fringerprint)
+  return &fringerprint_;
+}
+inline const ::dedup::Fringerprint& StorageChunkRequest::_internal_fringerprint(int index) const {
+  return fringerprint_.Get(index);
+}
+inline const ::dedup::Fringerprint& StorageChunkRequest::fringerprint(int index) const {
+  // @@protoc_insertion_point(field_get:dedup.StorageChunkRequest.fringerprint)
+  return _internal_fringerprint(index);
+}
+inline ::dedup::Fringerprint* StorageChunkRequest::_internal_add_fringerprint() {
+  return fringerprint_.Add();
+}
+inline ::dedup::Fringerprint* StorageChunkRequest::add_fringerprint() {
+  // @@protoc_insertion_point(field_add:dedup.StorageChunkRequest.fringerprint)
+  return _internal_add_fringerprint();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >&
+StorageChunkRequest::fringerprint() const {
+  // @@protoc_insertion_point(field_list:dedup.StorageChunkRequest.fringerprint)
+  return fringerprint_;
+}
+
+// repeated bytes chunk = 3;
+inline int StorageChunkRequest::_internal_chunk_size() const {
+  return chunk_.size();
+}
+inline int StorageChunkRequest::chunk_size() const {
+  return _internal_chunk_size();
+}
+inline void StorageChunkRequest::clear_chunk() {
+  chunk_.Clear();
+}
+inline std::string* StorageChunkRequest::add_chunk() {
+  // @@protoc_insertion_point(field_add_mutable:dedup.StorageChunkRequest.chunk)
+  return _internal_add_chunk();
+}
+inline const std::string& StorageChunkRequest::_internal_chunk(int index) const {
+  return chunk_.Get(index);
+}
+inline const std::string& StorageChunkRequest::chunk(int index) const {
+  // @@protoc_insertion_point(field_get:dedup.StorageChunkRequest.chunk)
+  return _internal_chunk(index);
+}
+inline std::string* StorageChunkRequest::mutable_chunk(int index) {
+  // @@protoc_insertion_point(field_mutable:dedup.StorageChunkRequest.chunk)
+  return chunk_.Mutable(index);
+}
+inline void StorageChunkRequest::set_chunk(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:dedup.StorageChunkRequest.chunk)
+  chunk_.Mutable(index)->assign(value);
+}
+inline void StorageChunkRequest::set_chunk(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:dedup.StorageChunkRequest.chunk)
+  chunk_.Mutable(index)->assign(std::move(value));
+}
+inline void StorageChunkRequest::set_chunk(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  chunk_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:dedup.StorageChunkRequest.chunk)
+}
+inline void StorageChunkRequest::set_chunk(int index, const void* value, size_t size) {
+  chunk_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:dedup.StorageChunkRequest.chunk)
+}
+inline std::string* StorageChunkRequest::_internal_add_chunk() {
+  return chunk_.Add();
+}
+inline void StorageChunkRequest::add_chunk(const std::string& value) {
+  chunk_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:dedup.StorageChunkRequest.chunk)
+}
+inline void StorageChunkRequest::add_chunk(std::string&& value) {
+  chunk_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:dedup.StorageChunkRequest.chunk)
+}
+inline void StorageChunkRequest::add_chunk(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  chunk_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:dedup.StorageChunkRequest.chunk)
+}
+inline void StorageChunkRequest::add_chunk(const void* value, size_t size) {
+  chunk_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:dedup.StorageChunkRequest.chunk)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+StorageChunkRequest::chunk() const {
+  // @@protoc_insertion_point(field_list:dedup.StorageChunkRequest.chunk)
+  return chunk_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+StorageChunkRequest::mutable_chunk() {
+  // @@protoc_insertion_point(field_mutable_list:dedup.StorageChunkRequest.chunk)
+  return &chunk_;
+}
+
+// -------------------------------------------------------------------
+
+// StorageChunkResponse
+
+// bool result = 1;
+inline void StorageChunkResponse::clear_result() {
+  result_ = false;
+}
+inline bool StorageChunkResponse::_internal_result() const {
+  return result_;
+}
+inline bool StorageChunkResponse::result() const {
+  // @@protoc_insertion_point(field_get:dedup.StorageChunkResponse.result)
+  return _internal_result();
+}
+inline void StorageChunkResponse::_internal_set_result(bool value) {
+  
+  result_ = value;
+}
+inline void StorageChunkResponse::set_result(bool value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:dedup.StorageChunkResponse.result)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

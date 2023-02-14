@@ -87,12 +87,12 @@ size_t DBHelper::size() {
     int cnt = 0;
     rocksdb::Iterator* it = chunkDB_->NewIterator(rocksdb::ReadOptions());
     for (it->SeekToFirst(); it->Valid(); it->Next()) {
-        // Fringerprint fp;
-        // memcpy(&fp, it->key().ToString().data(), 16);
-        // std::cout << fp.val() << ": "  << it->value().ToString() << std::endl;
-        // cnt++;
+        Fringerprint fp;
+        memcpy(&fp, it->key().ToString().data(), 16);
+        std::cout << fp.val() << ": "  << it->value().ToString() << std::endl;
+        cnt++;
     }
-    assert(it->status().ok());  // Check for any errors found during the scan
+    assert(it->status().ok()); 
     delete it;
 
     return cnt;

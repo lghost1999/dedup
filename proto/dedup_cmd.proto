@@ -21,6 +21,18 @@ message QueryFringerprintResponse {
     repeated uint64 bit = 2;
 };
 
+message StorageChunkRequest {
+    string remote_filename = 1;
+    repeated Fringerprint fringerprint = 2;
+    repeated bytes chunk = 3;
+};
+
+message StorageChunkResponse {
+    bool result = 1;
+};
+
+
 service DedupService {
     rpc QueryFringerprint(QueryFringerprintRequest) returns (QueryFringerprintResponse);
+    rpc StorageChunk(StorageChunkRequest) returns (StorageChunkResponse);
 };

@@ -35,50 +35,106 @@ void backup(std::string local_filename, std::string remote_filename) {
     }
 
     dedup::DedupService_Stub stub(&channel);
-    dedup::QueryFringerprintRequest request;
-    dedup::QueryFringerprintResponse response;
+    dedup::QueryFringerprintRequest query_request;
+    dedup::QueryFringerprintResponse query_response;
     brpc::Controller cntl;
 
     std::vector<Chunk> chunks;
+    int64_t start_time  = TimesUtil::getTimeNs();
     fastcdc.parse(local_filename.c_str(), chunks);
-    std::cout << "total chunks : " << chunks.size()  << std::endl;
+    double elapse  = (TimesUtil::getTimeNs() - start_time) / 1e6;
+    printf("%.2fMB in %.2fMS (%.3f MB/S)\n", 1.0 * fastcdc.getPos() / (1024 * 1024), elapse, 1000.0 * fastcdc.getPos() /(elapse * 1024 * 1024));
+    LOG(INFO) << "total chunks : " << chunks.size()  << std::endl;
 
     std::vector<Fringerprint> fps;
     for(auto& chunk : chunks) {
         fps.emplace_back(chunk.getFringerprint());
     }
+
     BitMap bitmap(fps.size());
     lru.get(fps, bitmap);
-    int exist_chunks = 0;
+    int client_chunks = 0;
     for (size_t i = 0; i < fps.size(); i++) {
         if (bitmap.get(i)) {
-            exist_chunks++;
+            client_chunks++;
         }
     }
     lru.put(fps);
-    std::cout << "client cache chunks : " << exist_chunks  << std::endl;
+    LOG(INFO) << "client cache chunks : " << client_chunks;
 
-    request.set_remote_filename(remote_filename);
-    request.set_backup_time(TimesUtil::getDateTime());
-    
+    query_request.set_remote_filename(remote_filename);
+    query_request.set_backup_time(TimesUtil::getDateTime());
     for (size_t i = 0; i < bitmap.getLength(); i++) {
-        request.add_bit(bitmap.getBit(i));
-        std::cout << bitmap.getBit(i) << std::endl;
+        query_request.add_bit(bitmap.getBit(i));
     }
 
     dedup::Fringerprint* fringerprint;
     for (const auto& chunk : chunks) {
-        fringerprint = request.add_fringerprint();
+        fringerprint = query_request.add_fringerprint();
         fringerprint->set_high(chunk.getFringerprint().getHigh64());
         fringerprint->set_low(chunk.getFringerprint().getLow64());
     }
 
-    stub.QueryFringerprint(&cntl, &request, &response, NULL);
+    stub.QueryFringerprint(&cntl, &query_request, &query_response, NULL);
     if (!cntl.Failed()) {
-        LOG(INFO) << response.result();
+        LOG(INFO) << "QueryFringerprint RPC OK";
     } else {
-        LOG(WARNING) << cntl.ErrorText();
+        LOG(ERROR) << cntl.request_attachment();
+        return;
     }
+
+    for (int i = 0; i < query_response.bit_size(); i++) {
+        bitmap.setBit(i, query_response.bit(i));
+    }
+
+    int server_chunks = 0;
+    for (size_t i = 0; i < fps.size(); i++) {
+        if (bitmap.get(i)) {
+            server_chunks++;
+        }
+    }
+    LOG(INFO) << "server cache chunks : " << server_chunks - client_chunks  <<
+                 "storage chunks : " << chunks.size() - server_chunks;
+
+    dedup::StorageChunkRequest storage_request;
+    dedup::StorageChunkResponse storage_response;
+
+    FILE *file = fopen(local_filename.c_str(), "r");
+    if (!file) {
+        LOG(ERROR) << "fail to open" << local_filename;
+        return;
+    }
+    
+
+    char buf[512 * 1024] = {0};
+    int offset = 0;
+    for (size_t i = 0; i < chunks.size(); i++) {
+        if (!bitmap.get(i)) {
+            if (!fread(buf, 1, chunks[i].getLength(), file)) {
+                LOG(ERROR) << "fail to read" << local_filename << "--" << offset;
+                return;
+            }
+            std::string data(buf, buf + chunks[i].getLength());
+            storage_request.add_chunk(data);
+
+            fringerprint = storage_request.add_fringerprint();
+            fringerprint->set_high(chunks[i].getFringerprint().getHigh64());
+            fringerprint->set_low(chunks[i].getFringerprint().getLow64());
+        }
+        offset += chunks[i].getLength();
+        fseek(file, offset, SEEK_SET);
+    }
+    fclose(file);
+
+    cntl.Reset();
+    stub.StorageChunk(&cntl, &storage_request, &storage_response, NULL);
+    if (!cntl.Failed()) {
+        LOG(INFO) << "Storage Chunk RPC OK";
+    } else {
+        LOG(ERROR) << cntl.request_attachment();
+        return;
+    }
+
 }
 
 void restore(std::string remote_filename, std::string local_filename) {
@@ -90,23 +146,6 @@ void restore(std::string remote_filename, std::string local_filename) {
 
 int main(int argc, char* argv[]) {
     
-    // test uint8_t to string
-    // int offset = 0;
-    // uint8_t buf[512 * 1024] = {0};
-    // for (auto& chunk : chunks) {
-    //     fread(buf, 1, chunks[0].getLength(), file);
-    //     std::string t(buf, buf + chunks[0].getLength());
-    //     uint8_t* px = (uint8_t*)t.c_str();
-        
-    //     offset += chunks[0].getLength();
-    //     fseek(file, offset, SEEK_SET);
-    // }
-
-
-    // int64_t end_time  = TimesUtil::getTimeNs();
-    // double time = (end_time - start_time) / 1e6;
-    
-    // printf("\n======\n%.2fMB in %.2fMS (%.3f MB/S)\n", 1.0 * fastcdc.getPos() / (1024*1024), time, 1000.0 * fastcdc.getPos() /(time * 1024 * 1024));
 
     google::ParseCommandLineFlags(&argc, &argv, true);
     options.protocol = FLAGS_protocol;
@@ -117,12 +156,12 @@ int main(int argc, char* argv[]) {
     std::string cmd, local_filename, remote_filename;
     while(1) {
         std::cin >> cmd >> local_filename >> remote_filename;
-        std::cout << cmd << "--" << local_filename << "--" << remote_filename << std::endl;
         if (cmd == "backup") {
             backup(local_filename, remote_filename);
+        } else if (cmd == "restore") {
+            restore(remote_filename, local_filename);
         }
     }
-    
     
     return 0;
 }

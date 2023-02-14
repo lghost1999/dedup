@@ -13,4 +13,10 @@ public:
                         dedup::QueryFringerprintResponse* response,
                         google::protobuf::Closure* done);
 
+    virtual void StorageChunk(google::protobuf::RpcController* cntl_base,
+                        const dedup::StorageChunkRequest* request,
+                        dedup::StorageChunkResponse* response,
+                        google::protobuf::Closure* done);
+
 };
+
