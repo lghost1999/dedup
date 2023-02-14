@@ -56,20 +56,20 @@ struct TableStruct_dedup_5fcmd_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dedup_5fcmd_2eproto;
 namespace dedup {
-class BackupRequest;
-class BackupRequestDefaultTypeInternal;
-extern BackupRequestDefaultTypeInternal _BackupRequest_default_instance_;
-class BackupResponse;
-class BackupResponseDefaultTypeInternal;
-extern BackupResponseDefaultTypeInternal _BackupResponse_default_instance_;
 class Fringerprint;
 class FringerprintDefaultTypeInternal;
 extern FringerprintDefaultTypeInternal _Fringerprint_default_instance_;
+class QueryFringerprintRequest;
+class QueryFringerprintRequestDefaultTypeInternal;
+extern QueryFringerprintRequestDefaultTypeInternal _QueryFringerprintRequest_default_instance_;
+class QueryFringerprintResponse;
+class QueryFringerprintResponseDefaultTypeInternal;
+extern QueryFringerprintResponseDefaultTypeInternal _QueryFringerprintResponse_default_instance_;
 }  // namespace dedup
 PROTOBUF_NAMESPACE_OPEN
-template<> ::dedup::BackupRequest* Arena::CreateMaybeMessage<::dedup::BackupRequest>(Arena*);
-template<> ::dedup::BackupResponse* Arena::CreateMaybeMessage<::dedup::BackupResponse>(Arena*);
 template<> ::dedup::Fringerprint* Arena::CreateMaybeMessage<::dedup::Fringerprint>(Arena*);
+template<> ::dedup::QueryFringerprintRequest* Arena::CreateMaybeMessage<::dedup::QueryFringerprintRequest>(Arena*);
+template<> ::dedup::QueryFringerprintResponse* Arena::CreateMaybeMessage<::dedup::QueryFringerprintResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace dedup {
 
@@ -214,23 +214,23 @@ class Fringerprint :
 };
 // -------------------------------------------------------------------
 
-class BackupRequest :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.BackupRequest) */ {
+class QueryFringerprintRequest :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.QueryFringerprintRequest) */ {
  public:
-  BackupRequest();
-  virtual ~BackupRequest();
+  QueryFringerprintRequest();
+  virtual ~QueryFringerprintRequest();
 
-  BackupRequest(const BackupRequest& from);
-  BackupRequest(BackupRequest&& from) noexcept
-    : BackupRequest() {
+  QueryFringerprintRequest(const QueryFringerprintRequest& from);
+  QueryFringerprintRequest(QueryFringerprintRequest&& from) noexcept
+    : QueryFringerprintRequest() {
     *this = ::std::move(from);
   }
 
-  inline BackupRequest& operator=(const BackupRequest& from) {
+  inline QueryFringerprintRequest& operator=(const QueryFringerprintRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline BackupRequest& operator=(BackupRequest&& from) noexcept {
+  inline QueryFringerprintRequest& operator=(QueryFringerprintRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -248,37 +248,37 @@ class BackupRequest :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const BackupRequest& default_instance();
+  static const QueryFringerprintRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const BackupRequest* internal_default_instance() {
-    return reinterpret_cast<const BackupRequest*>(
-               &_BackupRequest_default_instance_);
+  static inline const QueryFringerprintRequest* internal_default_instance() {
+    return reinterpret_cast<const QueryFringerprintRequest*>(
+               &_QueryFringerprintRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(BackupRequest& a, BackupRequest& b) {
+  friend void swap(QueryFringerprintRequest& a, QueryFringerprintRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(BackupRequest* other) {
+  inline void Swap(QueryFringerprintRequest* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline BackupRequest* New() const final {
-    return CreateMaybeMessage<BackupRequest>(nullptr);
+  inline QueryFringerprintRequest* New() const final {
+    return CreateMaybeMessage<QueryFringerprintRequest>(nullptr);
   }
 
-  BackupRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<BackupRequest>(arena);
+  QueryFringerprintRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<QueryFringerprintRequest>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const BackupRequest& from);
-  void MergeFrom(const BackupRequest& from);
+  void CopyFrom(const QueryFringerprintRequest& from);
+  void MergeFrom(const QueryFringerprintRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -292,10 +292,10 @@ class BackupRequest :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(BackupRequest* other);
+  void InternalSwap(QueryFringerprintRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "dedup.BackupRequest";
+    return "dedup.QueryFringerprintRequest";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -320,11 +320,34 @@ class BackupRequest :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFringerprintFieldNumber = 3,
+    kBitFieldNumber = 3,
+    kFringerprintFieldNumber = 4,
     kRemoteFilenameFieldNumber = 1,
     kBackupTimeFieldNumber = 2,
   };
-  // repeated .dedup.Fringerprint fringerprint = 3;
+  // repeated uint64 bit = 3;
+  int bit_size() const;
+  private:
+  int _internal_bit_size() const;
+  public:
+  void clear_bit();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bit(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_bit() const;
+  void _internal_add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_bit();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 bit(int index) const;
+  void set_bit(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      bit() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_bit();
+
+  // repeated .dedup.Fringerprint fringerprint = 4;
   int fringerprint_size() const;
   private:
   int _internal_fringerprint_size() const;
@@ -374,11 +397,13 @@ class BackupRequest :
   std::string* _internal_mutable_backup_time();
   public:
 
-  // @@protoc_insertion_point(class_scope:dedup.BackupRequest)
+  // @@protoc_insertion_point(class_scope:dedup.QueryFringerprintRequest)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > bit_;
+  mutable std::atomic<int> _bit_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint > fringerprint_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr remote_filename_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr backup_time_;
@@ -387,23 +412,23 @@ class BackupRequest :
 };
 // -------------------------------------------------------------------
 
-class BackupResponse :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.BackupResponse) */ {
+class QueryFringerprintResponse :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.QueryFringerprintResponse) */ {
  public:
-  BackupResponse();
-  virtual ~BackupResponse();
+  QueryFringerprintResponse();
+  virtual ~QueryFringerprintResponse();
 
-  BackupResponse(const BackupResponse& from);
-  BackupResponse(BackupResponse&& from) noexcept
-    : BackupResponse() {
+  QueryFringerprintResponse(const QueryFringerprintResponse& from);
+  QueryFringerprintResponse(QueryFringerprintResponse&& from) noexcept
+    : QueryFringerprintResponse() {
     *this = ::std::move(from);
   }
 
-  inline BackupResponse& operator=(const BackupResponse& from) {
+  inline QueryFringerprintResponse& operator=(const QueryFringerprintResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline BackupResponse& operator=(BackupResponse&& from) noexcept {
+  inline QueryFringerprintResponse& operator=(QueryFringerprintResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -421,37 +446,37 @@ class BackupResponse :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const BackupResponse& default_instance();
+  static const QueryFringerprintResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const BackupResponse* internal_default_instance() {
-    return reinterpret_cast<const BackupResponse*>(
-               &_BackupResponse_default_instance_);
+  static inline const QueryFringerprintResponse* internal_default_instance() {
+    return reinterpret_cast<const QueryFringerprintResponse*>(
+               &_QueryFringerprintResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(BackupResponse& a, BackupResponse& b) {
+  friend void swap(QueryFringerprintResponse& a, QueryFringerprintResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(BackupResponse* other) {
+  inline void Swap(QueryFringerprintResponse* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline BackupResponse* New() const final {
-    return CreateMaybeMessage<BackupResponse>(nullptr);
+  inline QueryFringerprintResponse* New() const final {
+    return CreateMaybeMessage<QueryFringerprintResponse>(nullptr);
   }
 
-  BackupResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<BackupResponse>(arena);
+  QueryFringerprintResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<QueryFringerprintResponse>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const BackupResponse& from);
-  void MergeFrom(const BackupResponse& from);
+  void CopyFrom(const QueryFringerprintResponse& from);
+  void MergeFrom(const QueryFringerprintResponse& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -465,10 +490,10 @@ class BackupResponse :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(BackupResponse* other);
+  void InternalSwap(QueryFringerprintResponse* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "dedup.BackupResponse";
+    return "dedup.QueryFringerprintResponse";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -493,24 +518,30 @@ class BackupResponse :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kErrorMessageFieldNumber = 2,
+    kBitFieldNumber = 2,
     kResultFieldNumber = 1,
   };
-  // string error_message = 2;
-  void clear_error_message();
-  const std::string& error_message() const;
-  void set_error_message(const std::string& value);
-  void set_error_message(std::string&& value);
-  void set_error_message(const char* value);
-  void set_error_message(const char* value, size_t size);
-  std::string* mutable_error_message();
-  std::string* release_error_message();
-  void set_allocated_error_message(std::string* error_message);
+  // repeated uint64 bit = 2;
+  int bit_size() const;
   private:
-  const std::string& _internal_error_message() const;
-  void _internal_set_error_message(const std::string& value);
-  std::string* _internal_mutable_error_message();
+  int _internal_bit_size() const;
   public:
+  void clear_bit();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_bit(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_bit() const;
+  void _internal_add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_bit();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 bit(int index) const;
+  void set_bit(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      bit() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_bit();
 
   // bool result = 1;
   void clear_result();
@@ -521,12 +552,13 @@ class BackupResponse :
   void _internal_set_result(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:dedup.BackupResponse)
+  // @@protoc_insertion_point(class_scope:dedup.QueryFringerprintResponse)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_message_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > bit_;
+  mutable std::atomic<int> _bit_cached_byte_size_;
   bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dedup_5fcmd_2eproto;
@@ -546,9 +578,9 @@ class DedupService : public ::PROTOBUF_NAMESPACE_ID::Service {
 
   static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* descriptor();
 
-  virtual void Backup(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::dedup::BackupRequest* request,
-                       ::dedup::BackupResponse* response,
+  virtual void QueryFringerprint(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::dedup::QueryFringerprintRequest* request,
+                       ::dedup::QueryFringerprintResponse* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -579,9 +611,9 @@ class DedupService_Stub : public DedupService {
 
   // implements DedupService ------------------------------------------
 
-  void Backup(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                       const ::dedup::BackupRequest* request,
-                       ::dedup::BackupResponse* response,
+  void QueryFringerprint(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::dedup::QueryFringerprintRequest* request,
+                       ::dedup::QueryFringerprintResponse* response,
                        ::google::protobuf::Closure* done);
  private:
   ::PROTOBUF_NAMESPACE_ID::RpcChannel* channel_;
@@ -643,249 +675,283 @@ inline void Fringerprint::set_low(::PROTOBUF_NAMESPACE_ID::uint64 value) {
 
 // -------------------------------------------------------------------
 
-// BackupRequest
+// QueryFringerprintRequest
 
 // string remote_filename = 1;
-inline void BackupRequest::clear_remote_filename() {
+inline void QueryFringerprintRequest::clear_remote_filename() {
   remote_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline const std::string& BackupRequest::remote_filename() const {
-  // @@protoc_insertion_point(field_get:dedup.BackupRequest.remote_filename)
+inline const std::string& QueryFringerprintRequest::remote_filename() const {
+  // @@protoc_insertion_point(field_get:dedup.QueryFringerprintRequest.remote_filename)
   return _internal_remote_filename();
 }
-inline void BackupRequest::set_remote_filename(const std::string& value) {
+inline void QueryFringerprintRequest::set_remote_filename(const std::string& value) {
   _internal_set_remote_filename(value);
-  // @@protoc_insertion_point(field_set:dedup.BackupRequest.remote_filename)
+  // @@protoc_insertion_point(field_set:dedup.QueryFringerprintRequest.remote_filename)
 }
-inline std::string* BackupRequest::mutable_remote_filename() {
-  // @@protoc_insertion_point(field_mutable:dedup.BackupRequest.remote_filename)
+inline std::string* QueryFringerprintRequest::mutable_remote_filename() {
+  // @@protoc_insertion_point(field_mutable:dedup.QueryFringerprintRequest.remote_filename)
   return _internal_mutable_remote_filename();
 }
-inline const std::string& BackupRequest::_internal_remote_filename() const {
+inline const std::string& QueryFringerprintRequest::_internal_remote_filename() const {
   return remote_filename_.GetNoArena();
 }
-inline void BackupRequest::_internal_set_remote_filename(const std::string& value) {
+inline void QueryFringerprintRequest::_internal_set_remote_filename(const std::string& value) {
   
   remote_filename_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline void BackupRequest::set_remote_filename(std::string&& value) {
+inline void QueryFringerprintRequest::set_remote_filename(std::string&& value) {
   
   remote_filename_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:dedup.BackupRequest.remote_filename)
+  // @@protoc_insertion_point(field_set_rvalue:dedup.QueryFringerprintRequest.remote_filename)
 }
-inline void BackupRequest::set_remote_filename(const char* value) {
+inline void QueryFringerprintRequest::set_remote_filename(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   remote_filename_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:dedup.BackupRequest.remote_filename)
+  // @@protoc_insertion_point(field_set_char:dedup.QueryFringerprintRequest.remote_filename)
 }
-inline void BackupRequest::set_remote_filename(const char* value, size_t size) {
+inline void QueryFringerprintRequest::set_remote_filename(const char* value, size_t size) {
   
   remote_filename_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:dedup.BackupRequest.remote_filename)
+  // @@protoc_insertion_point(field_set_pointer:dedup.QueryFringerprintRequest.remote_filename)
 }
-inline std::string* BackupRequest::_internal_mutable_remote_filename() {
+inline std::string* QueryFringerprintRequest::_internal_mutable_remote_filename() {
   
   return remote_filename_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* BackupRequest::release_remote_filename() {
-  // @@protoc_insertion_point(field_release:dedup.BackupRequest.remote_filename)
+inline std::string* QueryFringerprintRequest::release_remote_filename() {
+  // @@protoc_insertion_point(field_release:dedup.QueryFringerprintRequest.remote_filename)
   
   return remote_filename_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void BackupRequest::set_allocated_remote_filename(std::string* remote_filename) {
+inline void QueryFringerprintRequest::set_allocated_remote_filename(std::string* remote_filename) {
   if (remote_filename != nullptr) {
     
   } else {
     
   }
   remote_filename_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), remote_filename);
-  // @@protoc_insertion_point(field_set_allocated:dedup.BackupRequest.remote_filename)
+  // @@protoc_insertion_point(field_set_allocated:dedup.QueryFringerprintRequest.remote_filename)
 }
 
 // string backup_time = 2;
-inline void BackupRequest::clear_backup_time() {
+inline void QueryFringerprintRequest::clear_backup_time() {
   backup_time_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline const std::string& BackupRequest::backup_time() const {
-  // @@protoc_insertion_point(field_get:dedup.BackupRequest.backup_time)
+inline const std::string& QueryFringerprintRequest::backup_time() const {
+  // @@protoc_insertion_point(field_get:dedup.QueryFringerprintRequest.backup_time)
   return _internal_backup_time();
 }
-inline void BackupRequest::set_backup_time(const std::string& value) {
+inline void QueryFringerprintRequest::set_backup_time(const std::string& value) {
   _internal_set_backup_time(value);
-  // @@protoc_insertion_point(field_set:dedup.BackupRequest.backup_time)
+  // @@protoc_insertion_point(field_set:dedup.QueryFringerprintRequest.backup_time)
 }
-inline std::string* BackupRequest::mutable_backup_time() {
-  // @@protoc_insertion_point(field_mutable:dedup.BackupRequest.backup_time)
+inline std::string* QueryFringerprintRequest::mutable_backup_time() {
+  // @@protoc_insertion_point(field_mutable:dedup.QueryFringerprintRequest.backup_time)
   return _internal_mutable_backup_time();
 }
-inline const std::string& BackupRequest::_internal_backup_time() const {
+inline const std::string& QueryFringerprintRequest::_internal_backup_time() const {
   return backup_time_.GetNoArena();
 }
-inline void BackupRequest::_internal_set_backup_time(const std::string& value) {
+inline void QueryFringerprintRequest::_internal_set_backup_time(const std::string& value) {
   
   backup_time_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
 }
-inline void BackupRequest::set_backup_time(std::string&& value) {
+inline void QueryFringerprintRequest::set_backup_time(std::string&& value) {
   
   backup_time_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:dedup.BackupRequest.backup_time)
+  // @@protoc_insertion_point(field_set_rvalue:dedup.QueryFringerprintRequest.backup_time)
 }
-inline void BackupRequest::set_backup_time(const char* value) {
+inline void QueryFringerprintRequest::set_backup_time(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   backup_time_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:dedup.BackupRequest.backup_time)
+  // @@protoc_insertion_point(field_set_char:dedup.QueryFringerprintRequest.backup_time)
 }
-inline void BackupRequest::set_backup_time(const char* value, size_t size) {
+inline void QueryFringerprintRequest::set_backup_time(const char* value, size_t size) {
   
   backup_time_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:dedup.BackupRequest.backup_time)
+  // @@protoc_insertion_point(field_set_pointer:dedup.QueryFringerprintRequest.backup_time)
 }
-inline std::string* BackupRequest::_internal_mutable_backup_time() {
+inline std::string* QueryFringerprintRequest::_internal_mutable_backup_time() {
   
   return backup_time_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline std::string* BackupRequest::release_backup_time() {
-  // @@protoc_insertion_point(field_release:dedup.BackupRequest.backup_time)
+inline std::string* QueryFringerprintRequest::release_backup_time() {
+  // @@protoc_insertion_point(field_release:dedup.QueryFringerprintRequest.backup_time)
   
   return backup_time_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void BackupRequest::set_allocated_backup_time(std::string* backup_time) {
+inline void QueryFringerprintRequest::set_allocated_backup_time(std::string* backup_time) {
   if (backup_time != nullptr) {
     
   } else {
     
   }
   backup_time_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), backup_time);
-  // @@protoc_insertion_point(field_set_allocated:dedup.BackupRequest.backup_time)
+  // @@protoc_insertion_point(field_set_allocated:dedup.QueryFringerprintRequest.backup_time)
 }
 
-// repeated .dedup.Fringerprint fringerprint = 3;
-inline int BackupRequest::_internal_fringerprint_size() const {
+// repeated uint64 bit = 3;
+inline int QueryFringerprintRequest::_internal_bit_size() const {
+  return bit_.size();
+}
+inline int QueryFringerprintRequest::bit_size() const {
+  return _internal_bit_size();
+}
+inline void QueryFringerprintRequest::clear_bit() {
+  bit_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryFringerprintRequest::_internal_bit(int index) const {
+  return bit_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryFringerprintRequest::bit(int index) const {
+  // @@protoc_insertion_point(field_get:dedup.QueryFringerprintRequest.bit)
+  return _internal_bit(index);
+}
+inline void QueryFringerprintRequest::set_bit(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  bit_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dedup.QueryFringerprintRequest.bit)
+}
+inline void QueryFringerprintRequest::_internal_add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  bit_.Add(value);
+}
+inline void QueryFringerprintRequest::add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_bit(value);
+  // @@protoc_insertion_point(field_add:dedup.QueryFringerprintRequest.bit)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+QueryFringerprintRequest::_internal_bit() const {
+  return bit_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+QueryFringerprintRequest::bit() const {
+  // @@protoc_insertion_point(field_list:dedup.QueryFringerprintRequest.bit)
+  return _internal_bit();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+QueryFringerprintRequest::_internal_mutable_bit() {
+  return &bit_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+QueryFringerprintRequest::mutable_bit() {
+  // @@protoc_insertion_point(field_mutable_list:dedup.QueryFringerprintRequest.bit)
+  return _internal_mutable_bit();
+}
+
+// repeated .dedup.Fringerprint fringerprint = 4;
+inline int QueryFringerprintRequest::_internal_fringerprint_size() const {
   return fringerprint_.size();
 }
-inline int BackupRequest::fringerprint_size() const {
+inline int QueryFringerprintRequest::fringerprint_size() const {
   return _internal_fringerprint_size();
 }
-inline void BackupRequest::clear_fringerprint() {
+inline void QueryFringerprintRequest::clear_fringerprint() {
   fringerprint_.Clear();
 }
-inline ::dedup::Fringerprint* BackupRequest::mutable_fringerprint(int index) {
-  // @@protoc_insertion_point(field_mutable:dedup.BackupRequest.fringerprint)
+inline ::dedup::Fringerprint* QueryFringerprintRequest::mutable_fringerprint(int index) {
+  // @@protoc_insertion_point(field_mutable:dedup.QueryFringerprintRequest.fringerprint)
   return fringerprint_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >*
-BackupRequest::mutable_fringerprint() {
-  // @@protoc_insertion_point(field_mutable_list:dedup.BackupRequest.fringerprint)
+QueryFringerprintRequest::mutable_fringerprint() {
+  // @@protoc_insertion_point(field_mutable_list:dedup.QueryFringerprintRequest.fringerprint)
   return &fringerprint_;
 }
-inline const ::dedup::Fringerprint& BackupRequest::_internal_fringerprint(int index) const {
+inline const ::dedup::Fringerprint& QueryFringerprintRequest::_internal_fringerprint(int index) const {
   return fringerprint_.Get(index);
 }
-inline const ::dedup::Fringerprint& BackupRequest::fringerprint(int index) const {
-  // @@protoc_insertion_point(field_get:dedup.BackupRequest.fringerprint)
+inline const ::dedup::Fringerprint& QueryFringerprintRequest::fringerprint(int index) const {
+  // @@protoc_insertion_point(field_get:dedup.QueryFringerprintRequest.fringerprint)
   return _internal_fringerprint(index);
 }
-inline ::dedup::Fringerprint* BackupRequest::_internal_add_fringerprint() {
+inline ::dedup::Fringerprint* QueryFringerprintRequest::_internal_add_fringerprint() {
   return fringerprint_.Add();
 }
-inline ::dedup::Fringerprint* BackupRequest::add_fringerprint() {
-  // @@protoc_insertion_point(field_add:dedup.BackupRequest.fringerprint)
+inline ::dedup::Fringerprint* QueryFringerprintRequest::add_fringerprint() {
+  // @@protoc_insertion_point(field_add:dedup.QueryFringerprintRequest.fringerprint)
   return _internal_add_fringerprint();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >&
-BackupRequest::fringerprint() const {
-  // @@protoc_insertion_point(field_list:dedup.BackupRequest.fringerprint)
+QueryFringerprintRequest::fringerprint() const {
+  // @@protoc_insertion_point(field_list:dedup.QueryFringerprintRequest.fringerprint)
   return fringerprint_;
 }
 
 // -------------------------------------------------------------------
 
-// BackupResponse
+// QueryFringerprintResponse
 
 // bool result = 1;
-inline void BackupResponse::clear_result() {
+inline void QueryFringerprintResponse::clear_result() {
   result_ = false;
 }
-inline bool BackupResponse::_internal_result() const {
+inline bool QueryFringerprintResponse::_internal_result() const {
   return result_;
 }
-inline bool BackupResponse::result() const {
-  // @@protoc_insertion_point(field_get:dedup.BackupResponse.result)
+inline bool QueryFringerprintResponse::result() const {
+  // @@protoc_insertion_point(field_get:dedup.QueryFringerprintResponse.result)
   return _internal_result();
 }
-inline void BackupResponse::_internal_set_result(bool value) {
+inline void QueryFringerprintResponse::_internal_set_result(bool value) {
   
   result_ = value;
 }
-inline void BackupResponse::set_result(bool value) {
+inline void QueryFringerprintResponse::set_result(bool value) {
   _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:dedup.BackupResponse.result)
+  // @@protoc_insertion_point(field_set:dedup.QueryFringerprintResponse.result)
 }
 
-// string error_message = 2;
-inline void BackupResponse::clear_error_message() {
-  error_message_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+// repeated uint64 bit = 2;
+inline int QueryFringerprintResponse::_internal_bit_size() const {
+  return bit_.size();
 }
-inline const std::string& BackupResponse::error_message() const {
-  // @@protoc_insertion_point(field_get:dedup.BackupResponse.error_message)
-  return _internal_error_message();
+inline int QueryFringerprintResponse::bit_size() const {
+  return _internal_bit_size();
 }
-inline void BackupResponse::set_error_message(const std::string& value) {
-  _internal_set_error_message(value);
-  // @@protoc_insertion_point(field_set:dedup.BackupResponse.error_message)
+inline void QueryFringerprintResponse::clear_bit() {
+  bit_.Clear();
 }
-inline std::string* BackupResponse::mutable_error_message() {
-  // @@protoc_insertion_point(field_mutable:dedup.BackupResponse.error_message)
-  return _internal_mutable_error_message();
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryFringerprintResponse::_internal_bit(int index) const {
+  return bit_.Get(index);
 }
-inline const std::string& BackupResponse::_internal_error_message() const {
-  return error_message_.GetNoArena();
+inline ::PROTOBUF_NAMESPACE_ID::uint64 QueryFringerprintResponse::bit(int index) const {
+  // @@protoc_insertion_point(field_get:dedup.QueryFringerprintResponse.bit)
+  return _internal_bit(index);
 }
-inline void BackupResponse::_internal_set_error_message(const std::string& value) {
-  
-  error_message_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+inline void QueryFringerprintResponse::set_bit(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  bit_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dedup.QueryFringerprintResponse.bit)
 }
-inline void BackupResponse::set_error_message(std::string&& value) {
-  
-  error_message_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:dedup.BackupResponse.error_message)
+inline void QueryFringerprintResponse::_internal_add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  bit_.Add(value);
 }
-inline void BackupResponse::set_error_message(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  error_message_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:dedup.BackupResponse.error_message)
+inline void QueryFringerprintResponse::add_bit(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_bit(value);
+  // @@protoc_insertion_point(field_add:dedup.QueryFringerprintResponse.bit)
 }
-inline void BackupResponse::set_error_message(const char* value, size_t size) {
-  
-  error_message_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:dedup.BackupResponse.error_message)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+QueryFringerprintResponse::_internal_bit() const {
+  return bit_;
 }
-inline std::string* BackupResponse::_internal_mutable_error_message() {
-  
-  return error_message_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+QueryFringerprintResponse::bit() const {
+  // @@protoc_insertion_point(field_list:dedup.QueryFringerprintResponse.bit)
+  return _internal_bit();
 }
-inline std::string* BackupResponse::release_error_message() {
-  // @@protoc_insertion_point(field_release:dedup.BackupResponse.error_message)
-  
-  return error_message_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+QueryFringerprintResponse::_internal_mutable_bit() {
+  return &bit_;
 }
-inline void BackupResponse::set_allocated_error_message(std::string* error_message) {
-  if (error_message != nullptr) {
-    
-  } else {
-    
-  }
-  error_message_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), error_message);
-  // @@protoc_insertion_point(field_set_allocated:dedup.BackupResponse.error_message)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+QueryFringerprintResponse::mutable_bit() {
+  // @@protoc_insertion_point(field_mutable_list:dedup.QueryFringerprintResponse.bit)
+  return _internal_mutable_bit();
 }
 
 #ifdef __GNUC__

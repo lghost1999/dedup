@@ -8,9 +8,9 @@ class DedupServiceImpl : public dedup::DedupService {
 public:
     DedupServiceImpl() {}
     virtual ~DedupServiceImpl() {}
-    virtual void Backup(google::protobuf::RpcController* cntl_base,
-                        const dedup::BackupRequest* request,
-                        dedup::BackupResponse* response,
+    virtual void QueryFringerprint(google::protobuf::RpcController* cntl_base,
+                        const dedup::QueryFringerprintRequest* request,
+                        dedup::QueryFringerprintResponse* response,
                         google::protobuf::Closure* done);
 
 };

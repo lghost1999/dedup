@@ -3,24 +3,24 @@ package dedup;
 
 option cc_generic_services = true;
 
+
 message Fringerprint {
     uint64 high = 1;
     uint64 low = 2;
 }
 
-message BackupRequest {
+message QueryFringerprintRequest {
     string remote_filename = 1;
     string backup_time = 2;
-    repeated Fringerprint fringerprint = 3;
+    repeated uint64 bit = 3;
+    repeated Fringerprint fringerprint = 4;
 };
 
-message BackupResponse {
+message QueryFringerprintResponse {
     bool result = 1;
-    string error_message = 2;
+    repeated uint64 bit = 2;
 };
-
-
 
 service DedupService {
-    rpc Backup(BackupRequest) returns (BackupResponse);
+    rpc QueryFringerprint(QueryFringerprintRequest) returns (QueryFringerprintResponse);
 };

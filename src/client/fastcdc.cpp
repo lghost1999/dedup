@@ -52,7 +52,7 @@ FastCDC::FastCDC(uint32_t minsize, uint32_t avgsize, uint64_t maxsize) {
     pos_ = 0;
 }
 
-size_t FastCDC::chunking(char* path, uint8_t *data, size_t len, int end, std::vector<Chunk>& chunks) {
+size_t FastCDC::chunking(const char* path, uint8_t *data, size_t len, int end, std::vector<Chunk>& chunks) {
     size_t offset = 0;
     while (((len - offset) >= maxsize_) || (end && (offset < len))) {
         uint32_t chunklen = cut(data + offset, len - offset, minsize_, 
@@ -66,7 +66,7 @@ size_t FastCDC::chunking(char* path, uint8_t *data, size_t len, int end, std::ve
     return offset;
 }
 
-bool FastCDC::parse(char* path, std::vector<Chunk>& chunks) {
+bool FastCDC::parse(const char* path, std::vector<Chunk>& chunks) {
     FILE *file = fopen(path, "r");
     if (!file) {
         return false;

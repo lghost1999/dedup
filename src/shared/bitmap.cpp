@@ -18,3 +18,19 @@ bool BitMap::get(size_t n) {
 void BitMap::clear() {
     bits_.clear();
 }
+
+size_t BitMap::getLength() {
+    return bits_.size();
+}
+
+void BitMap::setLength(size_t length) {
+    bits_.resize(length, 0);
+}
+
+void BitMap::setBit(size_t idx, size_t val) {
+    bits_[idx] = val;
+}
+
+size_t BitMap::getBit(size_t idx) {
+    return bits_[idx];
+}
