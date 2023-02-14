@@ -17,7 +17,7 @@ public:
     bool closeDB();
 
     template <typename K, typename V>
-    bool get(K& key, V& val);
+    bool static get(K& key, V& val);
 
     template <typename K, typename V>
     bool put(K& key, V& val);

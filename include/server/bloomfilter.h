@@ -11,9 +11,9 @@ class BloomFilter {
 public:
     BloomFilter(size_t size) : bitmap_(size) {};
 
-    void set(Fringerprint fp);
+    bool set(std::vector<Fringerprint>& fps, BitMap& bitmap);
 
-    bool get(Fringerprint fp);
+    bool get(std::vector<Fringerprint>& fps, BitMap& bitmap);
 
     size_t hash1(Fringerprint fp);
     size_t hash2(Fringerprint fp);
