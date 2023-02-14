@@ -36,6 +36,14 @@ class StorageChunkResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StorageChunkResponse> _instance;
 } _StorageChunkResponse_default_instance_;
+class RestoreFileRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RestoreFileRequest> _instance;
+} _RestoreFileRequest_default_instance_;
+class RestoreFileResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RestoreFileResponse> _instance;
+} _RestoreFileResponse_default_instance_;
 }  // namespace dedup
 static void InitDefaultsscc_info_Fringerprint_dedup_5fcmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -80,6 +88,34 @@ static void InitDefaultsscc_info_QueryFringerprintResponse_dedup_5fcmd_2eproto()
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_QueryFringerprintResponse_dedup_5fcmd_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_QueryFringerprintResponse_dedup_5fcmd_2eproto}, {}};
 
+static void InitDefaultsscc_info_RestoreFileRequest_dedup_5fcmd_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::dedup::_RestoreFileRequest_default_instance_;
+    new (ptr) ::dedup::RestoreFileRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::dedup::RestoreFileRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RestoreFileRequest_dedup_5fcmd_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RestoreFileRequest_dedup_5fcmd_2eproto}, {}};
+
+static void InitDefaultsscc_info_RestoreFileResponse_dedup_5fcmd_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::dedup::_RestoreFileResponse_default_instance_;
+    new (ptr) ::dedup::RestoreFileResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::dedup::RestoreFileResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RestoreFileResponse_dedup_5fcmd_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RestoreFileResponse_dedup_5fcmd_2eproto}, {}};
+
 static void InitDefaultsscc_info_StorageChunkRequest_dedup_5fcmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -109,7 +145,7 @@ static void InitDefaultsscc_info_StorageChunkResponse_dedup_5fcmd_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StorageChunkResponse_dedup_5fcmd_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StorageChunkResponse_dedup_5fcmd_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dedup_5fcmd_2eproto[5];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dedup_5fcmd_2eproto[7];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_dedup_5fcmd_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_dedup_5fcmd_2eproto[1];
 
@@ -151,6 +187,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dedup_5fcmd_2eproto::offsets[]
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::dedup::StorageChunkResponse, result_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileRequest, remote_filename_),
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileRequest, backup_time_),
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileRequest, local_filename_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileResponse, result_),
+  PROTOBUF_FIELD_OFFSET(::dedup::RestoreFileResponse, file_data_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::dedup::Fringerprint)},
@@ -158,6 +209,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 16, -1, sizeof(::dedup::QueryFringerprintResponse)},
   { 23, -1, sizeof(::dedup::StorageChunkRequest)},
   { 31, -1, sizeof(::dedup::StorageChunkResponse)},
+  { 37, -1, sizeof(::dedup::RestoreFileRequest)},
+  { 45, -1, sizeof(::dedup::RestoreFileResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -166,6 +219,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_QueryFringerprintResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_StorageChunkRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_StorageChunkResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_RestoreFileRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_RestoreFileResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_dedup_5fcmd_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -179,28 +234,36 @@ const char descriptor_table_protodef_dedup_5fcmd_2eproto[] PROTOBUF_SECTION_VARI
   "\027\n\017remote_filename\030\001 \001(\t\022)\n\014fringerprint"
   "\030\002 \003(\0132\023.dedup.Fringerprint\022\r\n\005chunk\030\003 \003"
   "(\014\"&\n\024StorageChunkResponse\022\016\n\006result\030\001 \001"
-  "(\0102\257\001\n\014DedupService\022V\n\021QueryFringerprint"
-  "\022\037.dedup.QueryFringerprintRequest\032 .dedu"
-  "p.QueryFringerprintResponse\022G\n\014StorageCh"
-  "unk\022\032.dedup.StorageChunkRequest\032\033.dedup."
-  "StorageChunkResponseB\003\200\001\001b\006proto3"
+  "(\010\"Z\n\022RestoreFileRequest\022\027\n\017remote_filen"
+  "ame\030\001 \001(\t\022\023\n\013backup_time\030\002 \001(\t\022\026\n\016local_"
+  "filename\030\003 \001(\t\"8\n\023RestoreFileResponse\022\016\n"
+  "\006result\030\001 \001(\010\022\021\n\tfile_data\030\002 \001(\0142\365\001\n\014Ded"
+  "upService\022V\n\021QueryFringerprint\022\037.dedup.Q"
+  "ueryFringerprintRequest\032 .dedup.QueryFri"
+  "ngerprintResponse\022G\n\014StorageChunk\022\032.dedu"
+  "p.StorageChunkRequest\032\033.dedup.StorageChu"
+  "nkResponse\022D\n\013RestoreFile\022\031.dedup.Restor"
+  "eFileRequest\032\032.dedup.RestoreFileResponse"
+  "B\003\200\001\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_dedup_5fcmd_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dedup_5fcmd_2eproto_sccs[5] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dedup_5fcmd_2eproto_sccs[7] = {
   &scc_info_Fringerprint_dedup_5fcmd_2eproto.base,
   &scc_info_QueryFringerprintRequest_dedup_5fcmd_2eproto.base,
   &scc_info_QueryFringerprintResponse_dedup_5fcmd_2eproto.base,
+  &scc_info_RestoreFileRequest_dedup_5fcmd_2eproto.base,
+  &scc_info_RestoreFileResponse_dedup_5fcmd_2eproto.base,
   &scc_info_StorageChunkRequest_dedup_5fcmd_2eproto.base,
   &scc_info_StorageChunkResponse_dedup_5fcmd_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dedup_5fcmd_2eproto_once;
 static bool descriptor_table_dedup_5fcmd_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dedup_5fcmd_2eproto = {
-  &descriptor_table_dedup_5fcmd_2eproto_initialized, descriptor_table_protodef_dedup_5fcmd_2eproto, "dedup_cmd.proto", 593,
-  &descriptor_table_dedup_5fcmd_2eproto_once, descriptor_table_dedup_5fcmd_2eproto_sccs, descriptor_table_dedup_5fcmd_2eproto_deps, 5, 0,
+  &descriptor_table_dedup_5fcmd_2eproto_initialized, descriptor_table_protodef_dedup_5fcmd_2eproto, "dedup_cmd.proto", 813,
+  &descriptor_table_dedup_5fcmd_2eproto_once, descriptor_table_dedup_5fcmd_2eproto_sccs, descriptor_table_dedup_5fcmd_2eproto_deps, 7, 0,
   schemas, file_default_instances, TableStruct_dedup_5fcmd_2eproto::offsets,
-  file_level_metadata_dedup_5fcmd_2eproto, 5, file_level_enum_descriptors_dedup_5fcmd_2eproto, file_level_service_descriptors_dedup_5fcmd_2eproto,
+  file_level_metadata_dedup_5fcmd_2eproto, 7, file_level_enum_descriptors_dedup_5fcmd_2eproto, file_level_service_descriptors_dedup_5fcmd_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1399,6 +1462,502 @@ void StorageChunkResponse::InternalSwap(StorageChunkResponse* other) {
 
 // ===================================================================
 
+void RestoreFileRequest::InitAsDefaultInstance() {
+}
+class RestoreFileRequest::_Internal {
+ public:
+};
+
+RestoreFileRequest::RestoreFileRequest()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dedup.RestoreFileRequest)
+}
+RestoreFileRequest::RestoreFileRequest(const RestoreFileRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  remote_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_remote_filename().empty()) {
+    remote_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.remote_filename_);
+  }
+  backup_time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_backup_time().empty()) {
+    backup_time_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.backup_time_);
+  }
+  local_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_local_filename().empty()) {
+    local_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.local_filename_);
+  }
+  // @@protoc_insertion_point(copy_constructor:dedup.RestoreFileRequest)
+}
+
+void RestoreFileRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RestoreFileRequest_dedup_5fcmd_2eproto.base);
+  remote_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  backup_time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  local_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+RestoreFileRequest::~RestoreFileRequest() {
+  // @@protoc_insertion_point(destructor:dedup.RestoreFileRequest)
+  SharedDtor();
+}
+
+void RestoreFileRequest::SharedDtor() {
+  remote_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  backup_time_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  local_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void RestoreFileRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RestoreFileRequest& RestoreFileRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RestoreFileRequest_dedup_5fcmd_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RestoreFileRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:dedup.RestoreFileRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  remote_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  backup_time_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  local_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+const char* RestoreFileRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string remote_filename = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_remote_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dedup.RestoreFileRequest.remote_filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string backup_time = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_backup_time();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dedup.RestoreFileRequest.backup_time"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string local_filename = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_local_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dedup.RestoreFileRequest.local_filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RestoreFileRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dedup.RestoreFileRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string remote_filename = 1;
+  if (this->remote_filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_remote_filename().data(), static_cast<int>(this->_internal_remote_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dedup.RestoreFileRequest.remote_filename");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_remote_filename(), target);
+  }
+
+  // string backup_time = 2;
+  if (this->backup_time().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_backup_time().data(), static_cast<int>(this->_internal_backup_time().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dedup.RestoreFileRequest.backup_time");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_backup_time(), target);
+  }
+
+  // string local_filename = 3;
+  if (this->local_filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_local_filename().data(), static_cast<int>(this->_internal_local_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dedup.RestoreFileRequest.local_filename");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_local_filename(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dedup.RestoreFileRequest)
+  return target;
+}
+
+size_t RestoreFileRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dedup.RestoreFileRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string remote_filename = 1;
+  if (this->remote_filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_remote_filename());
+  }
+
+  // string backup_time = 2;
+  if (this->backup_time().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_backup_time());
+  }
+
+  // string local_filename = 3;
+  if (this->local_filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_local_filename());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RestoreFileRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dedup.RestoreFileRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RestoreFileRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RestoreFileRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dedup.RestoreFileRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dedup.RestoreFileRequest)
+    MergeFrom(*source);
+  }
+}
+
+void RestoreFileRequest::MergeFrom(const RestoreFileRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dedup.RestoreFileRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.remote_filename().size() > 0) {
+
+    remote_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.remote_filename_);
+  }
+  if (from.backup_time().size() > 0) {
+
+    backup_time_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.backup_time_);
+  }
+  if (from.local_filename().size() > 0) {
+
+    local_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.local_filename_);
+  }
+}
+
+void RestoreFileRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dedup.RestoreFileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RestoreFileRequest::CopyFrom(const RestoreFileRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dedup.RestoreFileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RestoreFileRequest::IsInitialized() const {
+  return true;
+}
+
+void RestoreFileRequest::InternalSwap(RestoreFileRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  remote_filename_.Swap(&other->remote_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  backup_time_.Swap(&other->backup_time_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  local_filename_.Swap(&other->local_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RestoreFileRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void RestoreFileResponse::InitAsDefaultInstance() {
+}
+class RestoreFileResponse::_Internal {
+ public:
+};
+
+RestoreFileResponse::RestoreFileResponse()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dedup.RestoreFileResponse)
+}
+RestoreFileResponse::RestoreFileResponse(const RestoreFileResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  file_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_file_data().empty()) {
+    file_data_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.file_data_);
+  }
+  result_ = from.result_;
+  // @@protoc_insertion_point(copy_constructor:dedup.RestoreFileResponse)
+}
+
+void RestoreFileResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RestoreFileResponse_dedup_5fcmd_2eproto.base);
+  file_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  result_ = false;
+}
+
+RestoreFileResponse::~RestoreFileResponse() {
+  // @@protoc_insertion_point(destructor:dedup.RestoreFileResponse)
+  SharedDtor();
+}
+
+void RestoreFileResponse::SharedDtor() {
+  file_data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void RestoreFileResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RestoreFileResponse& RestoreFileResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RestoreFileResponse_dedup_5fcmd_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RestoreFileResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:dedup.RestoreFileResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  file_data_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  result_ = false;
+  _internal_metadata_.Clear();
+}
+
+const char* RestoreFileResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool result = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes file_data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_file_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RestoreFileResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dedup.RestoreFileResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool result = 1;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_result(), target);
+  }
+
+  // bytes file_data = 2;
+  if (this->file_data().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_file_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dedup.RestoreFileResponse)
+  return target;
+}
+
+size_t RestoreFileResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dedup.RestoreFileResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes file_data = 2;
+  if (this->file_data().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_file_data());
+  }
+
+  // bool result = 1;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RestoreFileResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dedup.RestoreFileResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RestoreFileResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RestoreFileResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dedup.RestoreFileResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dedup.RestoreFileResponse)
+    MergeFrom(*source);
+  }
+}
+
+void RestoreFileResponse::MergeFrom(const RestoreFileResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dedup.RestoreFileResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.file_data().size() > 0) {
+
+    file_data_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.file_data_);
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+}
+
+void RestoreFileResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dedup.RestoreFileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RestoreFileResponse::CopyFrom(const RestoreFileResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dedup.RestoreFileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RestoreFileResponse::IsInitialized() const {
+  return true;
+}
+
+void RestoreFileResponse::InternalSwap(RestoreFileResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  file_data_.Swap(&other->file_data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(result_, other->result_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RestoreFileResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 DedupService::~DedupService() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* DedupService::descriptor() {
@@ -1426,6 +1985,14 @@ void DedupService::StorageChunk(::PROTOBUF_NAMESPACE_ID::RpcController* controll
   done->Run();
 }
 
+void DedupService::RestoreFile(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::dedup::RestoreFileRequest*,
+                         ::dedup::RestoreFileResponse*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method RestoreFile() not implemented.");
+  done->Run();
+}
+
 void DedupService::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -1449,6 +2016,14 @@ void DedupService::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* m
                  response),
              done);
       break;
+    case 2:
+      RestoreFile(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::dedup::RestoreFileRequest*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::dedup::RestoreFileResponse*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -1463,6 +2038,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& DedupService::GetRequestPrototype(
       return ::dedup::QueryFringerprintRequest::default_instance();
     case 1:
       return ::dedup::StorageChunkRequest::default_instance();
+    case 2:
+      return ::dedup::RestoreFileRequest::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -1478,6 +2055,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& DedupService::GetResponsePrototype(
       return ::dedup::QueryFringerprintResponse::default_instance();
     case 1:
       return ::dedup::StorageChunkResponse::default_instance();
+    case 2:
+      return ::dedup::RestoreFileResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -1510,6 +2089,13 @@ void DedupService_Stub::StorageChunk(::PROTOBUF_NAMESPACE_ID::RpcController* con
   channel_->CallMethod(descriptor()->method(1),
                        controller, request, response, done);
 }
+void DedupService_Stub::RestoreFile(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::dedup::RestoreFileRequest* request,
+                              ::dedup::RestoreFileResponse* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(2),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace dedup
@@ -1528,6 +2114,12 @@ template<> PROTOBUF_NOINLINE ::dedup::StorageChunkRequest* Arena::CreateMaybeMes
 }
 template<> PROTOBUF_NOINLINE ::dedup::StorageChunkResponse* Arena::CreateMaybeMessage< ::dedup::StorageChunkResponse >(Arena* arena) {
   return Arena::CreateInternal< ::dedup::StorageChunkResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dedup::RestoreFileRequest* Arena::CreateMaybeMessage< ::dedup::RestoreFileRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::dedup::RestoreFileRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dedup::RestoreFileResponse* Arena::CreateMaybeMessage< ::dedup::RestoreFileResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::dedup::RestoreFileResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

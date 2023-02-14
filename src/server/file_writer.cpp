@@ -31,7 +31,8 @@ bool FileWriter::write(std::string chunkdata, DBChunk& dbchunk) {
     }
 
     file << chunkdata;
-
+    file.close();
+    
     dbchunk.setFileid(file_id_);
     dbchunk.setOffset(size_);
     dbchunk.setLength(chunkdata.size());

@@ -31,8 +31,20 @@ message StorageChunkResponse {
     bool result = 1;
 };
 
+message RestoreFileRequest {
+    string remote_filename = 1;
+    string backup_time = 2;
+    string local_filename = 3;
+}
+
+message RestoreFileResponse {
+    bool result = 1;
+    bytes file_data = 2;
+}
+
 
 service DedupService {
     rpc QueryFringerprint(QueryFringerprintRequest) returns (QueryFringerprintResponse);
     rpc StorageChunk(StorageChunkRequest) returns (StorageChunkResponse);
+    rpc RestoreFile(RestoreFileRequest) returns (RestoreFileResponse);
 };

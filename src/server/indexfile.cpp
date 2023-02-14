@@ -31,6 +31,23 @@ bool IndexFile::writeFringerprints(std::string& dir_name, std::string& file_name
     return true;
 }
 
-bool IndexFile::readChunks(std::string& dir_name, std::string& file_name, std::vector<DBChunk>& dbchunks) {
+bool IndexFile::readChunks(std::string& data, std::vector<DBChunk>& dbchunks) {
+    char buf[512 * 1024] = {0};
+    for (auto dbchunk : dbchunks) {
+        std::string file_name = "datafile" + std::to_string(dbchunk.getFileid());
+        FILE *file = fopen(file_name.c_str(), "r");
+        if (!file) {
+            LOG(ERROR) << "fail to open" << file_name;
+            return false;
+        }
+
+        fseek(file, dbchunk.getOffset(), SEEK_SET);
+        if (!fread(buf, 1, dbchunk.getLength(), file)) {
+            LOG(ERROR) << "fail to read" << file_name;
+            return false;
+        }
+        data += std::string(buf, buf + dbchunk.getLength());
+        fclose(file);
+    }
     return true;
 }

@@ -8,6 +8,7 @@
 #include <vector>
 #include <string.h>
 #include <functional>
+#include <fstream>
 
 #include <gflags/gflags.h>
 #include <butil/logging.h>
@@ -27,7 +28,7 @@ FastCDC fastcdc(64 * 1024, 256 * 1024, 512 * 1024);
 FringerprintLRU lru(1024 * 1024);
 brpc::ChannelOptions options;
 
-void backup(std::string local_filename, std::string remote_filename) {
+void backup(std::string& local_filename, std::string& remote_filename) {
     brpc::Channel channel;
     if (channel.Init(FLAGS_server.c_str(), FLAGS_load_balancer.c_str(), &options) != 0) {
         LOG(ERROR) << "Fail to initialize channel";
@@ -138,14 +139,39 @@ void backup(std::string local_filename, std::string remote_filename) {
 }
 
 void restore(std::string remote_filename, std::string local_filename) {
+    brpc::Channel channel;
+    if (channel.Init(FLAGS_server.c_str(), FLAGS_load_balancer.c_str(), &options) != 0) {
+        LOG(ERROR) << "Fail to initialize channel";
+        return;
+    }
 
+    dedup::DedupService_Stub stub(&channel);
+    dedup::RestoreFileRequest restore_request;
+    dedup::RestoreFileResponse restore_response;
+    brpc::Controller cntl;
+
+    restore_request.set_remote_filename(remote_filename);
+
+    stub.RestoreFile(&cntl, &restore_request, &restore_response, NULL);
+    if (!cntl.Failed()) {
+        LOG(INFO) << "Restore FILE RPC OK";
+    } else {
+        LOG(ERROR) << cntl.request_attachment();
+        return;
+    }
+
+    std::string data = restore_response.file_data();
+    std::ofstream file;
+    file.open(local_filename, std::ios::out | std::ios::app);
+    if (!file) {
+        LOG(ERROR) << "fail to open" << local_filename;
+        return;
+    }
+    file << data;
+    file.close();
 }
 
-
-
-
 int main(int argc, char* argv[]) {
-    
 
     google::ParseCommandLineFlags(&argc, &argv, true);
     options.protocol = FLAGS_protocol;

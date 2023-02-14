@@ -71,6 +71,8 @@ bool FastCDC::parse(const char* path, std::vector<Chunk>& chunks) {
         return false;
     }
 
+    pos_ = 0;
+    
     size_t offset = 0;
     int end = 0;
     size_t bufsize = maxsize_ * 4;
