@@ -3,16 +3,22 @@ package dedup;
 
 option cc_generic_services = true;
 
+message Fringerprint {
+    uint64 high = 1;
+    uint64 low = 2;
+}
 
 message BackupRequest {
-    string remote_filename = 2;
-    string backup_time = 3;
+    string remote_filename = 1;
+    string backup_time = 2;
+    repeated Fringerprint fringerprint = 3;
 };
 
 message BackupResponse {
     bool result = 1;
     string error_message = 2;
 };
+
 
 
 service DedupService {

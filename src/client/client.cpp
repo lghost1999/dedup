@@ -11,6 +11,7 @@
 #include <butil/logging.h>
 #include <butil/time.h>
 #include <brpc/channel.h>
+#include "dedup_cmd.pb.h"
 #include "dedupservice_impl.h"
 
 DEFINE_string(protocol, "baidu_std", "Protocol type. Defined in src/brpc/options.proto");
@@ -21,12 +22,7 @@ DEFINE_int32(timeout_ms, 3000, "RPC timeout in milliseconds");
 DEFINE_int32(max_retry, 3, "Max retries(not including the first RPC)");
 
 int main(int argc, char* argv[]) {
-    FastCDC fastcdc(64 * 1024, 256 * 1024, 512 * 1024);
-    // std::vector<Chunk> chunks;
-
-    // int64_t start_time  = TimesUtil::getTimeNs();
-
-    // fastcdc.parse(argv[1], chunks);
+    
     
     // FILE* file = fopen(argv[1], "r");
 
@@ -65,14 +61,19 @@ int main(int argc, char* argv[]) {
 
     google::ParseCommandLineFlags(&argc, &argv, true);
     
-    brpc::Channel channel;
-    
     brpc::ChannelOptions options;
     options.protocol = FLAGS_protocol;
     options.connection_type = FLAGS_connection_type;
     options.timeout_ms = FLAGS_timeout_ms;
     options.max_retry = FLAGS_max_retry;
 
+
+    FastCDC fastcdc(64 * 1024, 256 * 1024, 512 * 1024);
+    std::vector<Chunk> chunks;
+    fastcdc.parse(argv[1], chunks);
+
+
+    brpc::Channel channel;
     if (channel.Init(FLAGS_server.c_str(), FLAGS_load_balancer.c_str(), &options) != 0) {
         LOG(ERROR) << "Fail to initialize channel";
         return -1;
@@ -83,8 +84,16 @@ int main(int argc, char* argv[]) {
     dedup::BackupResponse response;
     brpc::Controller cntl;
 
-    request.set_backup_time(TimesUtil::getDateTime());
+
     request.set_remote_filename(argv[2]);
+    request.set_backup_time(TimesUtil::getDateTime());
+    dedup::Fringerprint* fringerprint;
+
+    for (const auto& chunk : chunks) {
+        fringerprint = request.add_fringerprint();
+        fringerprint->set_high(chunk.getFringerprint().getHigh64());
+        fringerprint->set_low(chunk.getFringerprint().getLow64());
+    }
 
     stub.Backup(&cntl, &request, &response, NULL);
     if (!cntl.Failed()) {

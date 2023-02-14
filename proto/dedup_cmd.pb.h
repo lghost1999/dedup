@@ -48,7 +48,7 @@ struct TableStruct_dedup_5fcmd_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -62,14 +62,157 @@ extern BackupRequestDefaultTypeInternal _BackupRequest_default_instance_;
 class BackupResponse;
 class BackupResponseDefaultTypeInternal;
 extern BackupResponseDefaultTypeInternal _BackupResponse_default_instance_;
+class Fringerprint;
+class FringerprintDefaultTypeInternal;
+extern FringerprintDefaultTypeInternal _Fringerprint_default_instance_;
 }  // namespace dedup
 PROTOBUF_NAMESPACE_OPEN
 template<> ::dedup::BackupRequest* Arena::CreateMaybeMessage<::dedup::BackupRequest>(Arena*);
 template<> ::dedup::BackupResponse* Arena::CreateMaybeMessage<::dedup::BackupResponse>(Arena*);
+template<> ::dedup::Fringerprint* Arena::CreateMaybeMessage<::dedup::Fringerprint>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace dedup {
 
 // ===================================================================
+
+class Fringerprint :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.Fringerprint) */ {
+ public:
+  Fringerprint();
+  virtual ~Fringerprint();
+
+  Fringerprint(const Fringerprint& from);
+  Fringerprint(Fringerprint&& from) noexcept
+    : Fringerprint() {
+    *this = ::std::move(from);
+  }
+
+  inline Fringerprint& operator=(const Fringerprint& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Fringerprint& operator=(Fringerprint&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Fringerprint& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Fringerprint* internal_default_instance() {
+    return reinterpret_cast<const Fringerprint*>(
+               &_Fringerprint_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Fringerprint& a, Fringerprint& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Fringerprint* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Fringerprint* New() const final {
+    return CreateMaybeMessage<Fringerprint>(nullptr);
+  }
+
+  Fringerprint* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Fringerprint>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Fringerprint& from);
+  void MergeFrom(const Fringerprint& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Fringerprint* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dedup.Fringerprint";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dedup_5fcmd_2eproto);
+    return ::descriptor_table_dedup_5fcmd_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHighFieldNumber = 1,
+    kLowFieldNumber = 2,
+  };
+  // uint64 high = 1;
+  void clear_high();
+  ::PROTOBUF_NAMESPACE_ID::uint64 high() const;
+  void set_high(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_high() const;
+  void _internal_set_high(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 low = 2;
+  void clear_low();
+  ::PROTOBUF_NAMESPACE_ID::uint64 low() const;
+  void set_low(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_low() const;
+  void _internal_set_low(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:dedup.Fringerprint)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 high_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 low_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dedup_5fcmd_2eproto;
+};
+// -------------------------------------------------------------------
 
 class BackupRequest :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dedup.BackupRequest) */ {
@@ -113,7 +256,7 @@ class BackupRequest :
                &_BackupRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(BackupRequest& a, BackupRequest& b) {
     a.Swap(&b);
@@ -177,10 +320,29 @@ class BackupRequest :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRemoteFilenameFieldNumber = 2,
-    kBackupTimeFieldNumber = 3,
+    kFringerprintFieldNumber = 3,
+    kRemoteFilenameFieldNumber = 1,
+    kBackupTimeFieldNumber = 2,
   };
-  // string remote_filename = 2;
+  // repeated .dedup.Fringerprint fringerprint = 3;
+  int fringerprint_size() const;
+  private:
+  int _internal_fringerprint_size() const;
+  public:
+  void clear_fringerprint();
+  ::dedup::Fringerprint* mutable_fringerprint(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >*
+      mutable_fringerprint();
+  private:
+  const ::dedup::Fringerprint& _internal_fringerprint(int index) const;
+  ::dedup::Fringerprint* _internal_add_fringerprint();
+  public:
+  const ::dedup::Fringerprint& fringerprint(int index) const;
+  ::dedup::Fringerprint* add_fringerprint();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >&
+      fringerprint() const;
+
+  // string remote_filename = 1;
   void clear_remote_filename();
   const std::string& remote_filename() const;
   void set_remote_filename(const std::string& value);
@@ -196,7 +358,7 @@ class BackupRequest :
   std::string* _internal_mutable_remote_filename();
   public:
 
-  // string backup_time = 3;
+  // string backup_time = 2;
   void clear_backup_time();
   const std::string& backup_time() const;
   void set_backup_time(const std::string& value);
@@ -217,6 +379,7 @@ class BackupRequest :
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint > fringerprint_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr remote_filename_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr backup_time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -266,7 +429,7 @@ class BackupResponse :
                &_BackupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(BackupResponse& a, BackupResponse& b) {
     a.Swap(&b);
@@ -436,9 +599,53 @@ class DedupService_Stub : public DedupService {
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Fringerprint
+
+// uint64 high = 1;
+inline void Fringerprint::clear_high() {
+  high_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Fringerprint::_internal_high() const {
+  return high_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Fringerprint::high() const {
+  // @@protoc_insertion_point(field_get:dedup.Fringerprint.high)
+  return _internal_high();
+}
+inline void Fringerprint::_internal_set_high(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  high_ = value;
+}
+inline void Fringerprint::set_high(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_high(value);
+  // @@protoc_insertion_point(field_set:dedup.Fringerprint.high)
+}
+
+// uint64 low = 2;
+inline void Fringerprint::clear_low() {
+  low_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Fringerprint::_internal_low() const {
+  return low_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Fringerprint::low() const {
+  // @@protoc_insertion_point(field_get:dedup.Fringerprint.low)
+  return _internal_low();
+}
+inline void Fringerprint::_internal_set_low(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  low_ = value;
+}
+inline void Fringerprint::set_low(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_low(value);
+  // @@protoc_insertion_point(field_set:dedup.Fringerprint.low)
+}
+
+// -------------------------------------------------------------------
+
 // BackupRequest
 
-// string remote_filename = 2;
+// string remote_filename = 1;
 inline void BackupRequest::clear_remote_filename() {
   remote_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -498,7 +705,7 @@ inline void BackupRequest::set_allocated_remote_filename(std::string* remote_fil
   // @@protoc_insertion_point(field_set_allocated:dedup.BackupRequest.remote_filename)
 }
 
-// string backup_time = 3;
+// string backup_time = 2;
 inline void BackupRequest::clear_backup_time() {
   backup_time_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -556,6 +763,45 @@ inline void BackupRequest::set_allocated_backup_time(std::string* backup_time) {
   }
   backup_time_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), backup_time);
   // @@protoc_insertion_point(field_set_allocated:dedup.BackupRequest.backup_time)
+}
+
+// repeated .dedup.Fringerprint fringerprint = 3;
+inline int BackupRequest::_internal_fringerprint_size() const {
+  return fringerprint_.size();
+}
+inline int BackupRequest::fringerprint_size() const {
+  return _internal_fringerprint_size();
+}
+inline void BackupRequest::clear_fringerprint() {
+  fringerprint_.Clear();
+}
+inline ::dedup::Fringerprint* BackupRequest::mutable_fringerprint(int index) {
+  // @@protoc_insertion_point(field_mutable:dedup.BackupRequest.fringerprint)
+  return fringerprint_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >*
+BackupRequest::mutable_fringerprint() {
+  // @@protoc_insertion_point(field_mutable_list:dedup.BackupRequest.fringerprint)
+  return &fringerprint_;
+}
+inline const ::dedup::Fringerprint& BackupRequest::_internal_fringerprint(int index) const {
+  return fringerprint_.Get(index);
+}
+inline const ::dedup::Fringerprint& BackupRequest::fringerprint(int index) const {
+  // @@protoc_insertion_point(field_get:dedup.BackupRequest.fringerprint)
+  return _internal_fringerprint(index);
+}
+inline ::dedup::Fringerprint* BackupRequest::_internal_add_fringerprint() {
+  return fringerprint_.Add();
+}
+inline ::dedup::Fringerprint* BackupRequest::add_fringerprint() {
+  // @@protoc_insertion_point(field_add:dedup.BackupRequest.fringerprint)
+  return _internal_add_fringerprint();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dedup::Fringerprint >&
+BackupRequest::fringerprint() const {
+  // @@protoc_insertion_point(field_list:dedup.BackupRequest.fringerprint)
+  return fringerprint_;
 }
 
 // -------------------------------------------------------------------
@@ -645,6 +891,8 @@ inline void BackupResponse::set_allocated_error_message(std::string* error_messa
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

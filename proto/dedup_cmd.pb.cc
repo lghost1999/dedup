@@ -14,7 +14,12 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_dedup_5fcmd_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Fringerprint_dedup_5fcmd_2eproto;
 namespace dedup {
+class FringerprintDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Fringerprint> _instance;
+} _Fringerprint_default_instance_;
 class BackupRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BackupRequest> _instance;
@@ -35,8 +40,9 @@ static void InitDefaultsscc_info_BackupRequest_dedup_5fcmd_2eproto() {
   ::dedup::BackupRequest::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BackupRequest_dedup_5fcmd_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BackupRequest_dedup_5fcmd_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BackupRequest_dedup_5fcmd_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BackupRequest_dedup_5fcmd_2eproto}, {
+      &scc_info_Fringerprint_dedup_5fcmd_2eproto.base,}};
 
 static void InitDefaultsscc_info_BackupResponse_dedup_5fcmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -52,11 +58,32 @@ static void InitDefaultsscc_info_BackupResponse_dedup_5fcmd_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BackupResponse_dedup_5fcmd_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BackupResponse_dedup_5fcmd_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dedup_5fcmd_2eproto[2];
+static void InitDefaultsscc_info_Fringerprint_dedup_5fcmd_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::dedup::_Fringerprint_default_instance_;
+    new (ptr) ::dedup::Fringerprint();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::dedup::Fringerprint::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Fringerprint_dedup_5fcmd_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Fringerprint_dedup_5fcmd_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dedup_5fcmd_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_dedup_5fcmd_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_dedup_5fcmd_2eproto[1];
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dedup_5fcmd_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dedup::Fringerprint, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dedup::Fringerprint, high_),
+  PROTOBUF_FIELD_OFFSET(::dedup::Fringerprint, low_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dedup::BackupRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -64,6 +91,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dedup_5fcmd_2eproto::offsets[]
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::dedup::BackupRequest, remote_filename_),
   PROTOBUF_FIELD_OFFSET(::dedup::BackupRequest, backup_time_),
+  PROTOBUF_FIELD_OFFSET(::dedup::BackupRequest, fringerprint_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dedup::BackupResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -73,41 +101,262 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dedup_5fcmd_2eproto::offsets[]
   PROTOBUF_FIELD_OFFSET(::dedup::BackupResponse, error_message_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::dedup::BackupRequest)},
-  { 7, -1, sizeof(::dedup::BackupResponse)},
+  { 0, -1, sizeof(::dedup::Fringerprint)},
+  { 7, -1, sizeof(::dedup::BackupRequest)},
+  { 15, -1, sizeof(::dedup::BackupResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_Fringerprint_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_BackupRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dedup::_BackupResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_dedup_5fcmd_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\017dedup_cmd.proto\022\005dedup\"=\n\rBackupReques"
-  "t\022\027\n\017remote_filename\030\002 \001(\t\022\023\n\013backup_tim"
-  "e\030\003 \001(\t\"7\n\016BackupResponse\022\016\n\006result\030\001 \001("
-  "\010\022\025\n\rerror_message\030\002 \001(\t2E\n\014DedupService"
-  "\0225\n\006Backup\022\024.dedup.BackupRequest\032\025.dedup"
-  ".BackupResponseB\003\200\001\001b\006proto3"
+  "\n\017dedup_cmd.proto\022\005dedup\")\n\014Fringerprint"
+  "\022\014\n\004high\030\001 \001(\004\022\013\n\003low\030\002 \001(\004\"h\n\rBackupReq"
+  "uest\022\027\n\017remote_filename\030\001 \001(\t\022\023\n\013backup_"
+  "time\030\002 \001(\t\022)\n\014fringerprint\030\003 \003(\0132\023.dedup"
+  ".Fringerprint\"7\n\016BackupResponse\022\016\n\006resul"
+  "t\030\001 \001(\010\022\025\n\rerror_message\030\002 \001(\t2E\n\014DedupS"
+  "ervice\0225\n\006Backup\022\024.dedup.BackupRequest\032\025"
+  ".dedup.BackupResponseB\003\200\001\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_dedup_5fcmd_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dedup_5fcmd_2eproto_sccs[2] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dedup_5fcmd_2eproto_sccs[3] = {
   &scc_info_BackupRequest_dedup_5fcmd_2eproto.base,
   &scc_info_BackupResponse_dedup_5fcmd_2eproto.base,
+  &scc_info_Fringerprint_dedup_5fcmd_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dedup_5fcmd_2eproto_once;
 static bool descriptor_table_dedup_5fcmd_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dedup_5fcmd_2eproto = {
-  &descriptor_table_dedup_5fcmd_2eproto_initialized, descriptor_table_protodef_dedup_5fcmd_2eproto, "dedup_cmd.proto", 228,
-  &descriptor_table_dedup_5fcmd_2eproto_once, descriptor_table_dedup_5fcmd_2eproto_sccs, descriptor_table_dedup_5fcmd_2eproto_deps, 2, 0,
+  &descriptor_table_dedup_5fcmd_2eproto_initialized, descriptor_table_protodef_dedup_5fcmd_2eproto, "dedup_cmd.proto", 314,
+  &descriptor_table_dedup_5fcmd_2eproto_once, descriptor_table_dedup_5fcmd_2eproto_sccs, descriptor_table_dedup_5fcmd_2eproto_deps, 3, 0,
   schemas, file_default_instances, TableStruct_dedup_5fcmd_2eproto::offsets,
-  file_level_metadata_dedup_5fcmd_2eproto, 2, file_level_enum_descriptors_dedup_5fcmd_2eproto, file_level_service_descriptors_dedup_5fcmd_2eproto,
+  file_level_metadata_dedup_5fcmd_2eproto, 3, file_level_enum_descriptors_dedup_5fcmd_2eproto, file_level_service_descriptors_dedup_5fcmd_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_dedup_5fcmd_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_dedup_5fcmd_2eproto), true);
 namespace dedup {
+
+// ===================================================================
+
+void Fringerprint::InitAsDefaultInstance() {
+}
+class Fringerprint::_Internal {
+ public:
+};
+
+Fringerprint::Fringerprint()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dedup.Fringerprint)
+}
+Fringerprint::Fringerprint(const Fringerprint& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&high_, &from.high_,
+    static_cast<size_t>(reinterpret_cast<char*>(&low_) -
+    reinterpret_cast<char*>(&high_)) + sizeof(low_));
+  // @@protoc_insertion_point(copy_constructor:dedup.Fringerprint)
+}
+
+void Fringerprint::SharedCtor() {
+  ::memset(&high_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&low_) -
+      reinterpret_cast<char*>(&high_)) + sizeof(low_));
+}
+
+Fringerprint::~Fringerprint() {
+  // @@protoc_insertion_point(destructor:dedup.Fringerprint)
+  SharedDtor();
+}
+
+void Fringerprint::SharedDtor() {
+}
+
+void Fringerprint::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Fringerprint& Fringerprint::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Fringerprint_dedup_5fcmd_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Fringerprint::Clear() {
+// @@protoc_insertion_point(message_clear_start:dedup.Fringerprint)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&high_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&low_) -
+      reinterpret_cast<char*>(&high_)) + sizeof(low_));
+  _internal_metadata_.Clear();
+}
+
+const char* Fringerprint::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint64 high = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          high_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 low = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          low_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Fringerprint::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dedup.Fringerprint)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 high = 1;
+  if (this->high() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_high(), target);
+  }
+
+  // uint64 low = 2;
+  if (this->low() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_low(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dedup.Fringerprint)
+  return target;
+}
+
+size_t Fringerprint::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dedup.Fringerprint)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 high = 1;
+  if (this->high() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_high());
+  }
+
+  // uint64 low = 2;
+  if (this->low() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_low());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Fringerprint::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dedup.Fringerprint)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Fringerprint* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Fringerprint>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dedup.Fringerprint)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dedup.Fringerprint)
+    MergeFrom(*source);
+  }
+}
+
+void Fringerprint::MergeFrom(const Fringerprint& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dedup.Fringerprint)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.high() != 0) {
+    _internal_set_high(from._internal_high());
+  }
+  if (from.low() != 0) {
+    _internal_set_low(from._internal_low());
+  }
+}
+
+void Fringerprint::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dedup.Fringerprint)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fringerprint::CopyFrom(const Fringerprint& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dedup.Fringerprint)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fringerprint::IsInitialized() const {
+  return true;
+}
+
+void Fringerprint::InternalSwap(Fringerprint* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(high_, other->high_);
+  swap(low_, other->low_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Fringerprint::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
 
 // ===================================================================
 
@@ -124,7 +373,8 @@ BackupRequest::BackupRequest()
 }
 BackupRequest::BackupRequest(const BackupRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      fringerprint_(from.fringerprint_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   remote_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_remote_filename().empty()) {
@@ -168,6 +418,7 @@ void BackupRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  fringerprint_.Clear();
   remote_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   backup_time_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
@@ -180,22 +431,34 @@ const char* BackupRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string remote_filename = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+      // string remote_filename = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_remote_filename();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dedup.BackupRequest.remote_filename"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string backup_time = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // string backup_time = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_backup_time();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dedup.BackupRequest.backup_time"));
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .dedup.Fringerprint fringerprint = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_fringerprint(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -224,24 +487,32 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string remote_filename = 2;
+  // string remote_filename = 1;
   if (this->remote_filename().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_remote_filename().data(), static_cast<int>(this->_internal_remote_filename().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "dedup.BackupRequest.remote_filename");
     target = stream->WriteStringMaybeAliased(
-        2, this->_internal_remote_filename(), target);
+        1, this->_internal_remote_filename(), target);
   }
 
-  // string backup_time = 3;
+  // string backup_time = 2;
   if (this->backup_time().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_backup_time().data(), static_cast<int>(this->_internal_backup_time().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "dedup.BackupRequest.backup_time");
     target = stream->WriteStringMaybeAliased(
-        3, this->_internal_backup_time(), target);
+        2, this->_internal_backup_time(), target);
+  }
+
+  // repeated .dedup.Fringerprint fringerprint = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_fringerprint_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, this->_internal_fringerprint(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -260,14 +531,21 @@ size_t BackupRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string remote_filename = 2;
+  // repeated .dedup.Fringerprint fringerprint = 3;
+  total_size += 1UL * this->_internal_fringerprint_size();
+  for (const auto& msg : this->fringerprint_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string remote_filename = 1;
   if (this->remote_filename().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_remote_filename());
   }
 
-  // string backup_time = 3;
+  // string backup_time = 2;
   if (this->backup_time().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -305,6 +583,7 @@ void BackupRequest::MergeFrom(const BackupRequest& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  fringerprint_.MergeFrom(from.fringerprint_);
   if (from.remote_filename().size() > 0) {
 
     remote_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.remote_filename_);
@@ -336,6 +615,7 @@ bool BackupRequest::IsInitialized() const {
 void BackupRequest::InternalSwap(BackupRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  fringerprint_.InternalSwap(&other->fringerprint_);
   remote_filename_.Swap(&other->remote_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   backup_time_.Swap(&other->backup_time_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
@@ -661,6 +941,9 @@ void DedupService_Stub::Backup(::PROTOBUF_NAMESPACE_ID::RpcController* controlle
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace dedup
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::dedup::Fringerprint* Arena::CreateMaybeMessage< ::dedup::Fringerprint >(Arena* arena) {
+  return Arena::CreateInternal< ::dedup::Fringerprint >(arena);
+}
 template<> PROTOBUF_NOINLINE ::dedup::BackupRequest* Arena::CreateMaybeMessage< ::dedup::BackupRequest >(Arena* arena) {
   return Arena::CreateInternal< ::dedup::BackupRequest >(arena);
 }

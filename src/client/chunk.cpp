@@ -50,6 +50,6 @@ void Chunk::setFringerprint(Fringerprint fringerprint) {
     fringerprint_ = fringerprint;
 }
 
-Fringerprint Chunk::getFringerprint() {
+Fringerprint Chunk::getFringerprint() const {
     return fringerprint_;
 }

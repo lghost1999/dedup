@@ -12,8 +12,8 @@ Fringerprint Fringerprint::get(const void* data, size_t len, XXH64_hash_t seed) 
 
 std::string Fringerprint::val() const {
     std::ostringstream ss;
-    ss << std::hex << std::setfill('0') << std::setw(8) << fp_.high64 
-       << std::setfill('0') << std::setw(8) << fp_.low64;
+    ss << std::hex << std::setfill('0') << std::setw(16) << fp_.high64
+       << std::setfill('0') << std::setw(16) << fp_.low64;
     return ss.str();
 }
 

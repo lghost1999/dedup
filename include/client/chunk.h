@@ -25,7 +25,7 @@ public:
     void subRefCnt();
 
     void setFringerprint(Fringerprint fringerprint);
-    Fringerprint getFringerprint();
+    Fringerprint getFringerprint() const;
 
 private:
     std::string path_;
